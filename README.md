@@ -1,8 +1,29 @@
-# React + Vite
+## Visit my youtube channel : https://www.youtube.com/@sauravdev4757
+## Follow me on my Twitter : https://x.com/Saurav_dev21
+## My Linkedin : https://www.linkedin.com/in/saurabh-dev-9120aa236/
+## Follow me on my Instagram : https://www.instagram.com/sauravdev20002019/profilecard/?igsh=cnJsaGlqMnZjMm5h
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### PROJECT :
 
-Currently, two official plugins are available:
+Love-Gift-Memories
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+#### ACKNOWLEDGEMENTS :
+
+#### DESCRIPTION :
+
+#### TECHNOLOGIES :
+HTML5 , CSS , Plane Javascript 
+
+#### CONCEPTS AND TECHNIQUES:
+
+
+
+
+#### USAGE :
+#### LICENSE :
+#### CONTACT :
+
+You can reach out to me at -> devsaurabh086@gmail.com
+
+#### TRY IT --> 
+
