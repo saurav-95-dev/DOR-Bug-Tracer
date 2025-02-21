@@ -4,7 +4,7 @@ import TodoList from './components/TodoList'
 import Tabs from './components/Tabs'
 
 function App() {
-
+  //This is an array of objects:
   const todos = [
   { input: 'Hello! Add your first todo!', complete: true },
   { input: 'Get the groceries!', complete: false },
