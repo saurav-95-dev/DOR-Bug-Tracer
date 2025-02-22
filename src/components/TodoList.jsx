@@ -41,4 +41,3 @@ export default function TodoList(props) {
 TodoList.propTypes = {
     todos: PropTypes.array.isRequired,
 }
-
