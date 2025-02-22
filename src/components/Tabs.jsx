@@ -40,3 +40,4 @@ export default function Tabs(props) {
 Tabs.propTypes = {
     todos : PropTypes.array.isRequired,
 }
+
