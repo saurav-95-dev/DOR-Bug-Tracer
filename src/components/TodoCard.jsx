@@ -1,3 +1,5 @@
+//This particular component of TodoCard.jsx has to get rendered inside TodoList:
+
 import PropTypes from 'prop-types';
 
 export default function TodoCard(props) {

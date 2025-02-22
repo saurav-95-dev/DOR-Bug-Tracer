@@ -1,3 +1,5 @@
+//Todo card has to be rendered inside TodoList , i..e inside this particular component .
+
 import TodoCard from "./TodoCard";
 import PropTypes from "prop-types"; 
 
@@ -25,8 +27,8 @@ export default function TodoList(props) {
             {
                 filterTodoList.map((todo , todoIndex) => {
                     return (
-                        <TodoCard key = {todoIndex}
-                            todoIndex={todoIndex}
+                        <TodoCard
+                            key={todoIndex}
                             todo={todo}
                         />
                     )

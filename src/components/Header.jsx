@@ -18,5 +18,5 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-    todos: PropTypes.array.isRequired, //This ensures that todo is always an array and is required !
-};
+    todos: PropTypes.array.isRequired,
+}
