@@ -22,5 +22,5 @@ export default function TodoCard(props) {
 }
 
 TodoCard.propTypes = {
-    todo: PropTypes.array.isRequired,
+    todo : PropTypes.array.isRequired,
 }
