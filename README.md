@@ -5,14 +5,14 @@
 
 #### PROJECT :
 
-Love-Gift-Memories
+
 
 #### ACKNOWLEDGEMENTS :
 
 #### DESCRIPTION :
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Plane Javascript 
+HTML5 , CSS , Javascript , React , Material-UI
 
 #### CONCEPTS AND TECHNIQUES:
 
