@@ -1,43 +1,38 @@
-import PropTypes from "prop-types";
+
 
 export default function Tabs(props) {
 
-    //The TodoInput will be dependent on this Tab functional component :
-    const { todos = [] } = props;
-    //We have three tabs in total i.e tabs length is 3!
+    const { todos , selectedTab , setSelectedTab } = props;
+
     const tabs = ["All", "Open", "Completed"];
 
     return (
         <nav className="tab-container">
             {
-                //Logic to show the number of tasks beside the respective tabs:
-                //First map over the tabs array:
+        
+                //Defined tabIndex to identify each button uniquely.
                 tabs.map((tab, tabIndex) => {
                     let numOfTask = 0;
-                    if (tab == "All") {
-                        numOfTask = todos.length;
-                    }
-                    else if (tab == "Open") {
-                        //Rendering incomplete todos:
-                        numOfTask = todos.filter(val => !val.complete).length;
-                    }
-                    else {
-                        //Rendering complete todos:
-                        numOfTask = todos.filter(val => val.complete).length;
-                    }
+                if(tab == "All"){
+                    numOfTask = todos.length;
+                }
+                else if(tab == "Completed"){
+                    numOfTask = todos.filter(val => val.complete).length;
+                }
+                else{
+                   numOfTask = todos.filter(val => !val.complete).length;
+                
+                }
                     return (
-                        <button key={tabIndex} className="tab-button">
-                            <h4>{tab} <span>({numOfTask})</span> </h4>
+                        <button onClick={()=>{setSelectedTab(tab)}} key={tabIndex} className={"tab-button " + (tab==selectedTab ? " tab-selected" : "")}>
+                            <h4>{ tab } <span>({numOfTask})</span></h4>
                         </button>
                     )
                 })
-          }
+            }
+            <hr/>
+       </nav>
 
-        </nav>
+        
     )
 }
-
-Tabs.propTypes = {
-    todos : PropTypes.array.isRequired,
-}
-

@@ -1,6 +1,6 @@
 export default function Header({ todos }) {
     const todosLength = todos.length;
-    const openTasksCount = todos.filter(todo => !todo.complete).length; // ✅ Calculate it here
+    const openTasksCount = todos.filter(todo => !todo.complete).length; 
 
     return (
         <header>
