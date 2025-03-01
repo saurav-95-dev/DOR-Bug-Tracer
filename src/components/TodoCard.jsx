@@ -1,26 +1,34 @@
-//This particular component of TodoCard.jsx has to get rendered inside TodoList:
+import { useState } from "react";
 
-import PropTypes from 'prop-types';
+export default function TodoCard({ todo, handleDeleteTodo, todoIndex, handleCompleteTodo, handleEditTodo }) {
 
-export default function TodoCard(props) {
+  const [isEditing, setIsEditing] = useState(false); //isEditing is defaultly set to false! (Sequence-1)
+  const [newInput, setNewInput] = useState(todo.input);
 
-    const { todo =[]} = props;
 
-    return (
-        <div className = "card todo-item">
-            <p>{todo.input}</p>
-            <div className="todo-button">
-                <button disabled = {todo.complete}>
-                <h6>Done</h6>
-                </button>
-                <button>
-                    <h6>Delete</h6>
-               </button>
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="card todo-item"> 
+      {/* Sequence-3 , When the page re-render after the click of edit btn, a new input box gets rendered instead of todo.input since isEditing is set to true! */}
+      {isEditing ? (
+        <input type="text" value={newInput} onChange={(e) => setNewInput(e.target.value)} /> 
+      ) : (
+        <p>{todo.input}</p>
+      )}
 
-TodoCard.propTypes = {
-    todo : PropTypes.array.isRequired,
+      <div className="todo-buttons">
+        {isEditing ? (
+          <button onClick={()=>{
+            handleEditTodo(todoIndex , newInput)
+            setIsEditing(false);
+          }}><h6>Save</h6></button> 
+        ) : (
+          <>
+            <button onClick={() => setIsEditing(true)}><h6>Edit</h6></button> {/* (Sequence-2) When the edit btn is clicked , isEditing is set to true and the page re-renders itself*/}
+            <button onClick={() => handleCompleteTodo(todoIndex)} disabled={todo.complete}><h6>Done</h6></button>
+            <button onClick={() => handleDeleteTodo(todoIndex)}><h6>Delete</h6></button>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
