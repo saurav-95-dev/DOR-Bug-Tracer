@@ -1,5 +1,5 @@
 import { useState } from "react"
-
+import PropTypes from "prop-types";
 
 export default function TodoInput(props) {
     
@@ -22,3 +22,6 @@ export default function TodoInput(props) {
     )
 }
 
+TodoInput.propTypes = {
+    handleAddTodo: PropTypes.array.isRequired
+};
