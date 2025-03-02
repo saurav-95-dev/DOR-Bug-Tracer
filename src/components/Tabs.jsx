@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 
 export default function Tabs(props) {
@@ -36,3 +37,10 @@ export default function Tabs(props) {
         
     )
 }
+
+Tabs.propTypes = {
+    todos: PropTypes.array.isRequired,
+    selectedTab: PropTypes.array.isRequired ,
+    setSelectedTab :PropTypes.array.isRequired ,
+
+};
