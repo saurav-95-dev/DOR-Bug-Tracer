@@ -1,5 +1,6 @@
 //The TodoList is going to be dependent on the tab that's currently opened :
 import TodoCard from "./TodoCard";
+import PropTypes from "prop-types";
 
  
 export default function TodoList(props) {
@@ -23,4 +24,9 @@ export default function TodoList(props) {
             }
         </>
      )
- }
+}
+ 
+TodoList.propTypes = {
+    todos: PropTypes.array.isRequired,
+    selectedTab : PropTypes.array.isRequired,
+};
