@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 export default function Header({ todos }) {
     const todosLength = todos.length;
     const openTasksCount = todos.filter(todo => !todo.complete).length; 
@@ -10,3 +12,7 @@ export default function Header({ todos }) {
         </header>
     );
 }
+
+Header.propTypes = {
+    todos: PropTypes.array.isRequired
+};
