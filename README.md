@@ -12,7 +12,7 @@
 #### DESCRIPTION :
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Javascript , React , Material-UI
+HTML5 , CSS , Javascript , React , Chakra UI
 
 #### CONCEPTS AND TECHNIQUES:
 
