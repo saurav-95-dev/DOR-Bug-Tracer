@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export default function TodoCard({ todo, handleDeleteTodo, todoIndex, handleCompleteTodo, handleEditTodo }) {
 
@@ -32,3 +33,14 @@ export default function TodoCard({ todo, handleDeleteTodo, todoIndex, handleComp
     </div>
   );
 }
+
+TodoCard.propTypes = {
+  todo: PropTypes.array.isRequired,
+  handleDeleteTodo: PropTypes.array.isRequired,
+  todoIndex: PropTypes.array.isRequired,
+  handleCompleteTodo: PropTypes.array.isRequired,
+  handleEditTodo: PropTypes.array.isRequired,
+
+  
+
+};
