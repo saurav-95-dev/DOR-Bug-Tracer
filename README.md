@@ -15,6 +15,7 @@
 HTML5 , CSS , Javascript , React , Chakra UI
 
 #### CONCEPTS AND TECHNIQUES:
+useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload . 
 
 
 
