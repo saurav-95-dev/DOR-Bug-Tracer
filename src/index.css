@@ -152,3 +152,12 @@ hr {
     gap: 1rem;
   }
 }
+
+.severity {
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.sev1 { background: red; color: white; }
+.sev2 { background: orange; color: white; }
+.sev3 { background: yellow; color: black; }
