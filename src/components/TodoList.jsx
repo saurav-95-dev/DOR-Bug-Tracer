@@ -1,36 +1,32 @@
+//The TodoList is going to be dependent on the tab that's currently opened :
 import TodoCard from "./TodoCard";
 import PropTypes from "prop-types";
 
-export default function TodoList({ todos, selectedTab, selectedPriority, ...props }) {
-  let filterTodosList = todos;
-  
-  if (selectedTab !== "All") {
-    filterTodosList = selectedTab === "Completed" 
-      ? todos.filter(todo => todo.complete)
-      : todos.filter(todo => !todo.complete);
-  }
+ 
+export default function TodoList(props) {
 
-  if (selectedPriority !== "All") {
-    filterTodosList = filterTodosList.filter(todo => todo.priority === selectedPriority);
-  }
+    const { todos , selectedTab} = props;
+    const filterTodosList = selectedTab == "All" ? 
+    todos :
+    selectedTab == "Completed" ? 
+    todos.filter(val=>val.complete) : 
+    todos.filter(val=>!val.complete);
 
-  return (
-    <>
-      <h2>Prioritized Tasks</h2>
-      {filterTodosList.filter(todo => todo.priority === "High").map((todo, todoIndex) => (
-        <TodoCard key={todoIndex} todo={todo} {...props} todoIndex={todos.findIndex(t => t.input === todo.input)} />
-      ))}
-      
-      <h2>All Tasks</h2>
-      {filterTodosList.map((todo, todoIndex) => (
-        <TodoCard key={todoIndex} todo={todo} {...props} todoIndex={todos.findIndex(t => t.input === todo.input)} />
-      ))}
-    </>
-  );
+    
+    return (
+        <>
+            {
+                filterTodosList.map((todo , todoIndex) => {
+                    return (
+                        <TodoCard key={ todoIndex} todo={todo} {...props} todoIndex={todos.findIndex(val=>val.input==todo.input)}/>
+                    )
+                })
+            }
+        </>
+     )
 }
-
+ 
 TodoList.propTypes = {
-  todos: PropTypes.array.isRequired,
-  selectedTab: PropTypes.string.isRequired,
-  selectedPriority: PropTypes.string.isRequired,
+    todos: PropTypes.array.isRequired,
+    selectedTab : PropTypes.array.isRequired,
 };

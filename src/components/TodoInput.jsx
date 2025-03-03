@@ -1,37 +1,27 @@
-import { useState } from "react";
+import { useState } from "react"
 import PropTypes from "prop-types";
 
-export default function TodoInput({ handleAddTodo }) {
-  const [newTask, setNewTask] = useState("");
-  const [priority, setPriority] = useState("Low");
+export default function TodoInput(props) {
+    
+    const {handleAddTodo} = props;
+   
+    const [inputValue , setInputValue] = useState('');
+    console.log(inputValue);
+    return (
+        <div className="input-container">
+            <input value={inputValue} onChange={(e)=>{setInputValue(e.target.value)}} placeholder="Add Task" ></input>
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (newTask.trim() !== "") {
-      handleAddTodo(newTask, priority);
-      setNewTask("");
-      setPriority("Low");
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter your task..."
-        value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
-      />
-      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
-        <option value="Low">Low Priority</option>
-        <option value="Medium">Medium Priority</option>
-        <option value="High">High Priority</option>
-      </select>
-      <button type="submit">Add Task</button>
-    </form>
-  );
+            <button onClick={()=>{
+                if(!inputValue){return};
+                handleAddTodo(inputValue);
+                setInputValue("");
+            }}>
+            <i className="fa-solid fa-plus"></i>
+            </button>
+        </div>
+    )
 }
 
 TodoInput.propTypes = {
-  handleAddTodo: PropTypes.func.isRequired
+    handleAddTodo: PropTypes.array.isRequired
 };
