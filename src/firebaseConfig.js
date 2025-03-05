@@ -4,12 +4,13 @@ import { getFirestore, collection, addDoc, getDocs, updateDoc, deleteDoc, doc } 
 
 // Your Firebase project configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+    apiKey: "AIzaSyCpCcCa54MDfyVFXApWEkc_Er7GKxUYeRA",
+    authDomain: "oncall-bugtracer-dev-support.firebaseapp.com",
+    projectId: "oncall-bugtracer-dev-support",
+    storageBucket: "oncall-bugtracer-dev-support.firebasestorage.app",
+    messagingSenderId: "685798863751",
+    appId: "1:685798863751:web:ffaaba92685d9b1ccdd922",
+    measurementId: "G-VQJTNDYP3F"
 };
 
 // Initialize Firebase
