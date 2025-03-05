@@ -3,7 +3,7 @@
 ## My Linkedin : https://www.linkedin.com/in/saurabh-dev-9120aa236/
 ## Follow me on my Instagram : https://www.instagram.com/sauravdev20002019/profilecard/?igsh=cnJsaGlqMnZjMm5h
 
-#### PROJECT :
+#### PROJECT : OnCall-Tickets-Development-Support
 
 
 
@@ -12,16 +12,11 @@
 #### DESCRIPTION :
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Javascript , React , Chakra UI
+HTML5 , CSS , Javascript , React , Chakra UI , 
 
 #### CONCEPTS AND TECHNIQUES:
-useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload . 
+useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
 
-
-
-
-#### USAGE :
-#### LICENSE :
 #### CONTACT :
 
 You can reach out to me at -> devsaurabh086@gmail.com
