@@ -3,7 +3,7 @@ import Header from "./components/Header";
 import Tabs from "./components/Tabs";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-
+import Auth from "./components/Auth";
 
 export default function App() {
 
@@ -81,6 +81,7 @@ export default function App() {
 
   return (
     <>
+      {/* <Auth /> */}
       <Header todos={ todos} />
       <Tabs todos={ todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
       <TodoList  handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo}  handleDeleteTodo={handleDeleteTodo} todos={ todos} selectedTab={selectedTab}/> 
