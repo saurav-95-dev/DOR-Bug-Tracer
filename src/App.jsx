@@ -53,7 +53,11 @@ export default function App() {
   }, []);
 
   
-
+  function handleLogout() {
+    localStorage.removeItem("user"); // Clear user from local storage
+    setUser(null);
+  }
+  
   return (
     <>
       {!user ? (
@@ -64,7 +68,8 @@ export default function App() {
           <Tabs todos={todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
           <TodoList handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} todos={todos} selectedTab={selectedTab} />
           <TodoInput handleAddTodo={handleAddTodo} />
-          <button onClick={() => setUser(null)}>Logout</button>
+          <button onClick={handleLogout}>Logout</button>
+
         </>
       )}
     </>
