@@ -1,5 +1,5 @@
 import {  signOut } from "firebase/auth";
-import { auth, provider } from "../firebase"; // Ensure correct path
+import { auth, } from "../firebase"; // Ensure correct path
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
