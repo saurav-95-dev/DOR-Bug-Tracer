@@ -4,6 +4,9 @@ import Tabs from "./components/Tabs";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import Auth from "./components/Auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase"; // Ensure correct path
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -53,11 +56,30 @@ export default function App() {
   }, []);
 
   
-  function handleLogout() {
-    localStorage.removeItem("user"); // Clear user from local storage
-    setUser(null);
+  async function handleLogout() {
+    try {
+      await signOut(auth);  // Sign out from Firebase
+      localStorage.removeItem("user");  // Clear user from local storage
+      setUser(null);
+    } catch (error) {
+      console.error("Sign-out error:", error);
+    }
   }
   
+
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setUser(user);
+      localStorage.setItem("user", JSON.stringify(user));
+    } else {
+      setUser(null);
+      localStorage.removeItem("user");
+    }
+  });
+
+  return () => unsubscribe();
+}, []);
   return (
     <>
       {!user ? (

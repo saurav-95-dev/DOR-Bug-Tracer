@@ -1,7 +1,8 @@
-import { signInWithPopup, signOut } from "firebase/auth";
+import {  signOut } from "firebase/auth";
 import { auth, provider } from "../firebase"; // Ensure correct path
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 export default function Auth({ setUser }) {
   const [user, setLocalUser] = useState(null);
@@ -16,16 +17,20 @@ export default function Auth({ setUser }) {
     return () => unsubscribe();
   }, [setUser]);
 
-  // Handle Google Sign-In
-  const handleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      setLocalUser(result.user);
-      setUser(result.user);
-    } catch (error) {
-      console.error("Sign-in error:", error);
-    }
-  };
+  const provider = new GoogleAuthProvider();
+
+const handleSignIn = async () => {
+  try {
+    // Forces Google sign-in prompt every time
+    provider.setCustomParameters({ prompt: "select_account" });
+
+    const result = await signInWithPopup(auth, provider);
+    setLocalUser(result.user);
+    setUser(result.user);
+  } catch (error) {
+    console.error("Sign-in error:", error);
+  }
+};
 
   // Handle Sign-Out
   const handleSignOut = async () => {
