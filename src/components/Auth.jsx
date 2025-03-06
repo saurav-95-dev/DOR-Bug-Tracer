@@ -1,44 +1,42 @@
+import { signInWithPopup, signOut } from "firebase/auth";
+import { auth, provider } from "../firebase"; // Import Firebase auth and provider
 import { useState } from "react";
-import { auth } from "../firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
-const Auth = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Auth() {
+  const [user, setUser] = useState(null);
 
-  const signUp = async () => {
+  // Handle Google Sign-In
+  const handleSignIn = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      alert("User signed up!");
+      const result = await signInWithPopup(auth, provider);
+      setUser(result.user); // Save user details in state
     } catch (error) {
-      alert(error.message);
+      console.error("Error during sign-in:", error);
     }
   };
 
-  const login = async () => {
+  // Handle Sign-Out
+  const handleSignOut = async () => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
-      alert("User logged in!");
+      await signOut(auth);
+      setUser(null);
     } catch (error) {
-      alert(error.message);
+      console.error("Error during sign-out:", error);
     }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
-    alert("User logged out!");
   };
 
   return (
-    <div>
-      <h2>Auth</h2>
-      <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
-      <button onClick={signUp}>Sign Up</button>
-      <button onClick={login}>Login</button>
-      <button onClick={logout}>Logout</button>
+    <div style={{ textAlign: "center", marginTop: "20px" }}>
+      {user ? (
+        <>
+          <h2>Welcome, {user.displayName}!</h2>
+          <img src={user.photoURL} alt="Profile" style={{ borderRadius: "50%", width: "100px" }} />
+          <p>Email: {user.email}</p>
+          <button onClick={handleSignOut}>Sign Out</button>
+        </>
+      ) : (
+        <button onClick={handleSignIn}>Sign in with Google</button>
+      )}
     </div>
   );
-};
-
-export default Auth;
+}
