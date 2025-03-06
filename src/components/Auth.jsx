@@ -1,8 +1,9 @@
 import {  signOut } from "firebase/auth";
-import { auth, } from "../firebase"; // Ensure correct path
+import { auth, provider } from "../firebase"; // Ensure correct path
 import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import PropTypes from "prop-types";
 
 export default function Auth({ setUser }) {
   const [user, setLocalUser] = useState(null);
@@ -59,3 +60,7 @@ const handleSignIn = async () => {
     </div>
   );
 }
+
+Auth.propTypes = {
+  setUser: PropTypes.func.isRequired, // Ensures setUser is a required function prop
+};
