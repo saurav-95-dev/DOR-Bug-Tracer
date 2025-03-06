@@ -1,6 +1,7 @@
 import { signInWithPopup, signOut } from "firebase/auth";
 import { auth, provider } from "../firebase"; // Import Firebase auth and provider
 import { useState } from "react";
+import App from "../App";
 
 export default function Auth() {
   const [user, setUser] = useState(null);
@@ -29,9 +30,7 @@ export default function Auth() {
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       {user ? (
         <>
-          <h2>Welcome, {user.displayName}!</h2>
-          <img src={user.photoURL} alt="Profile" style={{ borderRadius: "50%", width: "100px" }} />
-          <p>Email: {user.email}</p>
+          <App/>
           <button onClick={handleSignOut}>Sign Out</button>
         </>
       ) : (
