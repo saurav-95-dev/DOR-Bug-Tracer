@@ -1,18 +1,29 @@
 import { signInWithPopup, signOut } from "firebase/auth";
-import { auth, provider } from "../firebase"; // Import Firebase auth and provider
-import { useState } from "react";
-import App from "../App";
+import { auth, provider } from "../firebase"; // Ensure correct path
+import { useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
-export default function Auth() {
-  const [user, setUser] = useState(null);
+export default function Auth({ setUser }) {
+  const [user, setLocalUser] = useState(null);
+
+  // Listen for authentication state changes
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setLocalUser(user);
+      setUser(user); // Update user in App.jsx
+    });
+
+    return () => unsubscribe();
+  }, [setUser]);
 
   // Handle Google Sign-In
   const handleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      setUser(result.user); // Save user details in state
+      setLocalUser(result.user);
+      setUser(result.user);
     } catch (error) {
-      console.error("Error during sign-in:", error);
+      console.error("Sign-in error:", error);
     }
   };
 
@@ -20,21 +31,25 @@ export default function Auth() {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
+      setLocalUser(null);
       setUser(null);
     } catch (error) {
-      console.error("Error during sign-out:", error);
+      console.error("Sign-out error:", error);
     }
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "20px" }}>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
       {user ? (
         <>
-          <App/>
+          <h2>Welcome, {user.displayName}!</h2>
           <button onClick={handleSignOut}>Sign Out</button>
         </>
       ) : (
-        <button onClick={handleSignIn}>Sign in with Google</button>
+        <>
+          <h2>Welcome to Todo App</h2>
+          <button onClick={handleSignIn}>Sign in with Google</button>
+        </>
       )}
     </div>
   );

@@ -52,6 +52,8 @@ export default function App() {
     setTodos(db.todos);
   }, []);
 
+  
+
   return (
     <>
       {!user ? (
