@@ -1,11 +1,21 @@
 import { signOut } from "firebase/auth";
-import { auth, provider } from "../firebase"; 
+import { auth } from "../firebase";
 import { useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
+import "./Auth.css"; // Import CSS
 
 export default function Auth({ setUser }) {
   const [user, setLocalUser] = useState(null);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -21,6 +31,7 @@ export default function Auth({ setUser }) {
   const handleSignIn = async () => {
     try {
       provider.setCustomParameters({ prompt: "select_account" });
+
       const result = await signInWithPopup(auth, provider);
       setLocalUser(result.user);
       setUser(result.user);
@@ -39,41 +50,85 @@ export default function Auth({ setUser }) {
     }
   };
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
-    <div className="flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600">
-      <div className="bg-white p-8 rounded-3xl shadow-lg w-96 text-center">
+    <div className="auth-container">
+      <div className="auth-box">
         {user ? (
           <>
-            <img
-              src={user.photoURL}
-              alt="Profile"
-              className="w-20 h-20 rounded-full mx-auto mb-4 border-4 border-gray-300"
-            />
-            <h2 className="text-xl font-semibold text-gray-700">
-              Welcome, {user.displayName}!
-            </h2>
-            <button
-              onClick={handleSignOut}
-              className="mt-4 w-full bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
-            >
+            <h2>Welcome, {user.displayName}!</h2>
+            <button className="signout-btn" onClick={handleSignOut}>
               Sign Out
             </button>
           </>
         ) : (
           <>
-            <h2 className="text-2xl font-bold text-gray-700">Welcome to Todo App</h2>
-            <p className="text-gray-500 mt-2">Sign in to continue</p>
-            <button
-              onClick={handleSignIn}
-              className="mt-6 flex items-center justify-center gap-2 bg-blue-500 text-white w-full px-4 py-2 rounded-lg shadow-md hover:bg-blue-600 transition"
-            >
+            <h2>Welcome back!</h2>
+            <p className="subtext">
+              Discover the world’s best community of interior designers
+            </p>
+
+            <button className="google-btn" onClick={handleSignIn}>
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
-                alt="Google"
-                className="w-5 h-5"
+                alt="Google Logo"
+                className="google-logo"
               />
-              Sign in with Google
+              Log in with Google
             </button>
+
+            <div className="separator">
+              <span>OR</span>
+            </div>
+
+            <form>
+              <label>Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter your name"
+                value={formData.fullName}
+                onChange={handleChange}
+              />
+
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                value={formData.email}
+                onChange={handleChange}
+              />
+
+              <label>Password</label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                value={formData.password}
+                onChange={handleChange}
+              />
+
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+
+              <button type="submit" className="login-btn">
+                Login
+              </button>
+            </form>
+
+            <p className="signup-text">
+              Don’t have an account? <a href="#">Sign up for Free</a>
+            </p>
           </>
         )}
       </div>
