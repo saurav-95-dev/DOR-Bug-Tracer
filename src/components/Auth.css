@@ -111,19 +111,21 @@
   
   /* Login button */
   .login-btn {
-    background: #0052cc;
+    background: #4b8cee;
     color: white;
     padding: 12px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: medium;
     transition: all 0.3s ease;
+    padding-left: 35px;
+    padding-right: 35px;
   }
   
   .login-btn:hover {
-    background: #0041a8;
+    background: #0f60e2;
   }
   
   /* Signup text */

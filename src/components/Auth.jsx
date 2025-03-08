@@ -73,7 +73,7 @@ export default function Auth({ setUser }) {
 
             <button className="google-btn" onClick={handleSignIn}>
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png"
+                src="src/assets/google (1).png"
                 alt="Google Logo"
                 className="google-logo"
               />
