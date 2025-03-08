@@ -111,7 +111,7 @@
   
   /* Login button */
   .login-btn {
-    background: #4b8cee;
+    background: #337ae5;
     color: white;
     padding: 12px;
     border-radius: 8px;
@@ -120,12 +120,14 @@
     font-size: 16px;
     font-weight: medium;
     transition: all 0.3s ease;
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px ;
   }
   
   .login-btn:hover {
-    background: #0f60e2;
+    background: #0959d8;
   }
   
   /* Signup text */
