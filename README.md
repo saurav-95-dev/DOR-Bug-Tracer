@@ -12,10 +12,11 @@
 #### DESCRIPTION :
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Javascript , React , Chakra UI , 
+HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication
 
 #### CONCEPTS AND TECHNIQUES:
 useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
+Hooks used - 
 
 #### CONTACT :
 
