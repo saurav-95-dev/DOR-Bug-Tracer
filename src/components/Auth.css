@@ -1,81 +1,115 @@
-/* Full-page styling */
+/* Full-Screen Gradient Background */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;  /* Use absolute positioning */
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
 }
 
-/* Glassmorphism effect for login box */
-.auth-box {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+/* Prevent Scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Center Login Box */
+.login-box {
+  width: 350px; /* Adjust as needed */
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
-  width: 400px;
+}
+
+
+
+/* Gradient animation */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Card-style login box with glassmorphism */
+.auth-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 50px 40px;
+  text-align: center;
+  width: 420px;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Headings */
+/* Heading styles */
 .auth-box h2 {
   margin-bottom: 10px;
   font-size: 26px;
-  color: #ffffff;
+  font-weight: bold;
+  color: #fff;
 }
 
-/* Subtext */
+/* Subtext under the heading */
 .subtext {
   font-size: 14px;
-  color: #dddddd;
+  color: #eee;
   margin-bottom: 20px;
 }
 
-/* Google button styling */
+/* Google button */
 .google-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  background: white;
+  gap: 12px;
+  background: #ffffff;
   color: #333;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   width: 100%;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .google-btn:hover {
-  background: #f3f3f3;
+  background: #f3f4f6;
+  transform: scale(1.05);
 }
 
 .google-logo {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
 }
 
-/* Separator with OR */
+/* Separator line with "OR" */
 .separator {
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .separator span {
   background: rgba(255, 255, 255, 0.2);
-  padding: 0 10px;
-  color: #ffffff;
+  padding: 0 12px;
+  color: #ddd;
   font-size: 14px;
   font-weight: bold;
-  border-radius: 8px;
 }
 
 .separator::before,
@@ -86,7 +120,7 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Form styling */
+/* Form styles */
 form {
   display: flex;
   flex-direction: column;
@@ -96,20 +130,20 @@ label {
   text-align: left;
   font-size: 14px;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   margin-bottom: 5px;
 }
 
 input {
-  padding: 12px;
+  padding: 14px;
   margin-bottom: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   font-size: 14px;
   outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
   transition: 0.3s;
-  background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
 }
 
 input::placeholder {
@@ -117,37 +151,39 @@ input::placeholder {
 }
 
 input:focus {
-  border-color: #ffcc00;
-  box-shadow: 0 0 8px rgba(255, 204, 0, 0.5);
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
 /* Login button */
 .login-btn {
-  background: #ffcc00;
-  color: #333;
-  padding: 12px;
+  background: #34a853;
+  color: white;
+  padding: 14px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .login-btn:hover {
-  background: #ffb700;
+  background: #2e8b57;
+  transform: scale(1.05);
 }
 
 /* Signup text */
 .signup-text {
   margin-top: 15px;
   font-size: 14px;
-  color: #ffffff;
+  color: #fff;
 }
 
 .signup-text a {
-  color: #ffcc00;
+  color: #ffd700;
   text-decoration: none;
   font-weight: bold;
 }
@@ -158,19 +194,20 @@ input:focus {
 
 /* Sign out button */
 .signout-btn {
-  background: #ff3b30;
+  background: #ea4335;
   color: white;
-  padding: 12px;
+  padding: 14px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
-  transition: 0.3s ease;
-  margin-top: 15px;
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .signout-btn:hover {
   background: #d32f2f;
+  transform: scale(1.05);
 }
