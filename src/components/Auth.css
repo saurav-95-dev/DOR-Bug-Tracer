@@ -1,35 +1,24 @@
-/* Full-Screen Gradient Background */
+/* Apply full-screen background */
 .auth-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;  /* Use absolute positioning */
-  top: 0;
-  left: 0;
   width: 100vw;
   height: 100vh;
   background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
   background-size: 400% 400%;
   animation: gradientAnimation 10s ease infinite;
+  overflow: hidden; /* Prevent any content overflow */
 }
 
-/* Prevent Scrolling */
+/* Fix for body and html to prevent scrolling */
 html, body {
   margin: 0;
   padding: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-}
-
-/* Center Login Box */
-.login-box {
-  width: 350px; /* Adjust as needed */
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  overflow: hidden; /* Completely disable scrolling */
+  position: fixed; /* Prevents sliding issues */
 }
 
 
