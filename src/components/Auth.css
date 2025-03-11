@@ -1,36 +1,7 @@
-/* Full-Screen Gradient Background */
-.auth-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;  /* Use absolute positioning */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
-}
 
-/* Prevent Scrolling */
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-}
 
-/* Center Login Box */
-.login-box {
-  width: 350px; /* Adjust as needed */
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
+
+
 
 /* Gradient animation */
 @keyframes gradientAnimation {
@@ -153,20 +124,6 @@ input:focus {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
 }
 
-/* Login button */
-.login-btn {
-  background: #34a853;
-  color: white;
-  padding: 14px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  width: 100%;
-  margin-top: 10px;
-}
 
 .login-btn:hover {
   background: #2e8b57;
@@ -291,17 +248,18 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* Prevents overflow */
-  position: absolute;
+  flex-wrap: wrap;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  min-height: 100vh; /* Prevents top overflow */
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-  backdrop-filter: blur(15px); /* Glass effect */
+  min-height: 100vh; /* Ensures enough height */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
+  overflow: hidden;
 }
 
 /* Prevent scrolling */
@@ -310,16 +268,16 @@ html, body {
   padding: 0;
   width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* Ensures no extra scrolling */
 }
 
-/* Login Box (Styled Minimalist) */
+/* Login Box (Fixed Button Visibility) */
 .login-box {
-  width: 380px; 
-  padding: 25px;
+  width: 380px;
+  padding: 30px 25px 50px; /* Extra padding-bottom to prevent hidden button */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -327,25 +285,10 @@ html, body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: auto; /* Allows scrolling inside if needed */
 }
 
-/* Login form inputs */
-input {
-  padding: 12px;
-  margin-bottom: 12px;
-  width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
-  font-size: 16px;
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-/* Login button */
+/* Login button (Green) */
 .login-btn {
   background: #34a853;
   color: white;
@@ -357,6 +300,7 @@ input::placeholder {
   font-weight: bold;
   transition: all 0.3s ease;
   width: 100%;
+  margin-top: 20px; /* Ensure spacing above */
 }
 
 .login-btn:hover {
@@ -367,7 +311,7 @@ input::placeholder {
 /* Responsive Fixes */
 @media (max-width: 1024px) {
   .auth-container {
-    backdrop-filter: blur(12px); /* Slightly reduce blur */
+    backdrop-filter: blur(12px);
   }
 }
 
@@ -378,6 +322,6 @@ input::placeholder {
   }
 
   .auth-container {
-    backdrop-filter: blur(8px); /* Reduce blur for performance */
+    backdrop-filter: blur(8px);
   }
 }
