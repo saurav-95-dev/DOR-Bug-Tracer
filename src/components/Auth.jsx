@@ -125,10 +125,6 @@ export default function Auth({ setUser }) {
                 Login
               </button>
             </form>
-
-            <p className="signup-text">
-              Don’t have an account? <a href="#">Sign up for Free</a>
-            </p>
           </>
         )}
       </div>

@@ -27,13 +27,13 @@
   margin-bottom: 10px;
   font-size: 26px;
   font-weight: bold;
-  color: #fff;
+  color: #1f1c1c;
 }
 
 /* Subtext under the heading */
 .subtext {
   font-size: 14px;
-  color: #eee;
+  color: #070707;
   margin-bottom: 20px;
 }
 
@@ -99,7 +99,7 @@ label {
   text-align: left;
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
+  color: #111111;
   margin-bottom: 5px;
 }
 
@@ -111,7 +111,7 @@ input {
   font-size: 14px;
   outline: none;
   background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  color: #ae1212;
   transition: 0.3s;
 }
 
@@ -134,7 +134,7 @@ input:focus {
 .signup-text {
   margin-top: 15px;
   font-size: 14px;
-  color: #fff;
+  color: #292626;
 }
 
 .signup-text a {
@@ -150,7 +150,7 @@ input:focus {
 /* Sign out button */
 .signout-btn {
   background: #ea4335;
-  color: white;
+  color: rgb(9, 9, 9);
   padding: 14px;
   border-radius: 8px;
   border: none;
@@ -174,7 +174,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(to right, #4facfe, #00f2fe);
+  background: linear-gradient(to right, #f3ef78, #f8fc07);
   font-family: Arial, sans-serif;
 }
 
@@ -231,7 +231,7 @@ button {
   width: 100%;
   padding: 12px;
   background: #28a745;
-  color: white;
+  color: rgb(43, 39, 39);
   font-size: 16px;
   border: none;
   border-radius: 5px;
@@ -248,18 +248,16 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  min-height: 100vh; /* Ensures enough height */
+  height: 100vh; /* Ensures full height */
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.2);
-  overflow: hidden;
 }
 
 /* Prevent scrolling */
@@ -267,31 +265,41 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh; /* Full height */
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Ensures no extra scrolling */
+  overflow: hidden; /* Prevents unwanted scrolling */
 }
 
-/* Login Box (Fixed Button Visibility) */
+/* Login Box */
 .login-box {
-  width: 380px;
-  padding: 30px 25px 50px; /* Extra padding-bottom to prevent hidden button */
-  background: rgba(255, 255, 255, 0.15);
+  width: 400px;
+  padding: 40px 30px;
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: auto; /* Allows scrolling inside if needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Login button (Green) */
+/* Ensure Button is Always Visible */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .login-btn {
   background: #34a853;
-  color: white;
+  color: rgb(60, 53, 53);
   padding: 14px;
   border-radius: 8px;
   border: none;
@@ -300,7 +308,7 @@ html, body {
   font-weight: bold;
   transition: all 0.3s ease;
   width: 100%;
-  margin-top: 20px; /* Ensure spacing above */
+  margin-top: 20px;
 }
 
 .login-btn:hover {
@@ -310,8 +318,9 @@ html, body {
 
 /* Responsive Fixes */
 @media (max-width: 1024px) {
-  .auth-container {
-    backdrop-filter: blur(12px);
+  .login-box {
+    width: 90%;
+    padding: 30px;
   }
 }
 
@@ -320,8 +329,5 @@ html, body {
     width: 90%;
     padding: 20px;
   }
-
-  .auth-container {
-    backdrop-filter: blur(8px);
-  }
 }
+
