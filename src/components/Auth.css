@@ -209,3 +209,245 @@ input:focus {
   background: #d32f2f;
   transform: scale(1.05);
 } 
+
+/* Full-Screen Gradient Background */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #4285f4, #34a853, #fbbc05, #ea4335);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Prevent Scrolling */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Login Box with Glassmorphism */
+.auth-box {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  padding: 50px 40px;
+  text-align: center;
+  width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Heading styles */
+.auth-box h2 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Subtext under the heading */
+.subtext {
+  font-size: 14px;
+  color: #eee;
+  margin-bottom: 20px;
+}
+
+/* Google button */
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #333;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.google-btn:hover {
+  background: #f3f4f6;
+  transform: scale(1.05);
+}
+
+/* Separator line with "OR" */
+.separator {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+}
+
+.separator span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0 12px;
+  color: #ddd;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: 0.3s;
+  width: 100%;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Login button */
+.login-btn {
+  background: #34a853;
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-btn:hover {
+  background: #2e8b57;
+  transform: scale(1.05);
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #fff;
+}
+
+.signup-text a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}
+
+/* Sign out button */
+.signout-btn {
+  background: #ea4335;
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.signout-btn:hover {
+  background: #d32f2f;
+  transform: scale(1.05);
+}
+
+/* 🔹 RESPONSIVE DESIGN FOR SMALL SCREENS */
+@media (max-width: 768px) {
+  .auth-box {
+    width: 90%;
+    padding: 40px 30px;
+  }
+
+  .auth-box h2 {
+    font-size: 22px;
+  }
+
+  .subtext {
+    font-size: 13px;
+  }
+
+  input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .login-btn, .signout-btn {
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-box {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .auth-box h2 {
+    font-size: 20px;
+  }
+
+  .subtext {
+    font-size: 12px;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .login-btn, .signout-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
