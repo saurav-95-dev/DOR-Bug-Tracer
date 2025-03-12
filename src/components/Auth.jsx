@@ -38,7 +38,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
       localStorage.setItem("user", JSON.stringify(result.user));
-      setIsFirstTime(false); // ✅ Fix: Use setIsFirstTime instead of setIsNewUser
+      setIsFirstTime(false);
     } catch (error) {
       alert("Google Sign-in error: " + error.message);
       console.error("Google Sign-in error:", error);
@@ -61,7 +61,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
         setUser(userCredential.user);
         localStorage.setItem("user", JSON.stringify(userCredential.user));
       }
-      setIsFirstTime(false); // ✅ Fix: Use setIsFirstTime instead of setIsNewUser
+      setIsFirstTime(false);
     } catch (error) {
       alert("Authentication error: " + error.message);
       console.error("Auth error:", error);
@@ -73,7 +73,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
       await signOut(auth);
       setUser(null);
       localStorage.removeItem("user");
-      setIsFirstTime(true); // ✅ Redirect to sign-up after logout
+      setIsFirstTime(true);
     } catch (error) {
       alert("Logout error: " + error.message);
       console.error("Logout error:", error);

@@ -53,7 +53,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    if (!localStorage || !localStorage.getItem("todo-app")) return;
+    if (!localStorage.getItem("todo-app")) return;
     let db = JSON.parse(localStorage.getItem("todo-app"));
     setTodos(db.todos);
   }, []);
