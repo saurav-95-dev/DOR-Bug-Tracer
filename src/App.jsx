@@ -1,3 +1,4 @@
+// App.jsx
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tabs from "./components/Tabs";
@@ -5,19 +6,15 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import Auth from "./components/Auth";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "./firebase"; // Ensure correct path
+import { auth } from "./firebase";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [isFirstTime, setIsFirstTime] = useState(() => {
-    return localStorage.getItem("isFirstTime") !== "false"; // ✅ Correct retrieval
-  });
   const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true }]);
   const [selectedTab, setSelectedTab] = useState("Open");
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem("user"));
-    if (savedUser) setUser(savedUser);
+    localStorage.removeItem("user"); // Ensure login page appears on revisit
   }, []);
 
   function handleAddTodo(newTodo) {
@@ -56,39 +53,30 @@ export default function App() {
     setTodos(db.todos);
   }, []);
 
-  // ✅ Handle Logout & Reset to Sign-Up Page
-  async function handleLogout() {
-    try {
-      await signOut(auth);
-      localStorage.removeItem("user");
-      localStorage.setItem("isFirstTime", "true"); // ✅ Ensure Sign-Up page is shown
-      setUser(null);
-      setIsFirstTime(true);
-    } catch (error) {
-      console.error("Sign-out error:", error);
-    }
-  }
 
-  // ✅ Track Firebase Auth State (Login / Logout)
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser);
-        localStorage.setItem("user", JSON.stringify(currentUser));
-        localStorage.setItem("isFirstTime", "false"); // ✅ Switch to Login if user exists
-        setIsFirstTime(false);
-      } else {
-        setUser(null);
-        setIsFirstTime(localStorage.getItem("isFirstTime") !== "false"); // ✅ Keep stored value
+        setUser(null); // Ensure login is required on revisiting
       }
     });
     return () => unsubscribe();
   }, []);
 
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+      localStorage.removeItem("user");
+      setUser(null);
+    } catch (error) {
+      console.error("Sign-out error:", error);
+    }
+  }
   return (
     <>
       {!user ? (
-        <Auth setUser={setUser} isFirstTime={isFirstTime} setIsFirstTime={setIsFirstTime} />
+        <Auth setUser={setUser} />
       ) : (
         <>
           <Header todos={todos} />
