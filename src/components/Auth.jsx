@@ -1,4 +1,3 @@
-// Auth.jsx
 import { useState } from "react";
 import { auth } from "../firebase";
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
@@ -15,7 +14,6 @@ export default function Auth({ setUser }) {
       provider.setCustomParameters({ prompt: "select_account" });
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
-      localStorage.setItem("user", JSON.stringify(result.user));
     } catch (error) {
       alert("Google Sign-in error: " + error.message);
     }
@@ -31,7 +29,6 @@ export default function Auth({ setUser }) {
         userCredential = await signInWithEmailAndPassword(auth, formData.email, formData.password);
       }
       setUser(userCredential.user);
-      localStorage.setItem("user", JSON.stringify(userCredential.user));
     } catch (error) {
       alert("Authentication error: " + error.message);
     }

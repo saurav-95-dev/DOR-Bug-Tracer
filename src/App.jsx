@@ -1,4 +1,3 @@
-// App.jsx
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Tabs from "./components/Tabs";
@@ -14,7 +13,11 @@ export default function App() {
   const [selectedTab, setSelectedTab] = useState("Open");
 
   useEffect(() => {
-    localStorage.removeItem("user"); // Ensure login page appears on revisit
+    // Check if the user is already logged in when the app loads
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
   }, []);
 
   function handleAddTodo(newTodo) {
@@ -53,26 +56,15 @@ export default function App() {
     setTodos(db.todos);
   }, []);
 
-
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser(null); // Ensure login is required on revisiting
-      }
-    });
-    return () => unsubscribe();
-  }, []);
-
   async function handleLogout() {
     try {
       await signOut(auth);
-      localStorage.removeItem("user");
       setUser(null);
     } catch (error) {
       console.error("Sign-out error:", error);
     }
   }
+
   return (
     <>
       {!user ? (
