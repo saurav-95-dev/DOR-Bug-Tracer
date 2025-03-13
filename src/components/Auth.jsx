@@ -38,6 +38,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
       const result = await signInWithPopup(auth, provider);
       setUser(result.user);
       localStorage.setItem("user", JSON.stringify(result.user));
+      localStorage.setItem("isFirstTime", "false"); // ✅ Ensure Login page on revisit
       setIsFirstTime(false);
     } catch (error) {
       alert("Google Sign-in error: " + error.message);
@@ -61,6 +62,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
         setUser(userCredential.user);
         localStorage.setItem("user", JSON.stringify(userCredential.user));
       }
+      localStorage.setItem("isFirstTime", "false"); // ✅ Ensure Login page next time
       setIsFirstTime(false);
     } catch (error) {
       alert("Authentication error: " + error.message);
@@ -73,6 +75,7 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
       await signOut(auth);
       setUser(null);
       localStorage.removeItem("user");
+      localStorage.setItem("isFirstTime", "true"); // ✅ Reset to Sign-Up
       setIsFirstTime(true);
     } catch (error) {
       alert("Logout error: " + error.message);
@@ -87,29 +90,21 @@ export default function Auth({ setUser, isFirstTime, setIsFirstTime }) {
   return (
     <div className="auth-container">
       <div className="auth-box">
-        {auth.currentUser ? (
-          <div>
-            <h2>Welcome, {auth.currentUser.displayName || "User"}!</h2>
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
-          </div>
-        ) : (
-          <>
-            <h2>{isFirstTime ? "Sign Up" : "Log In"}</h2>
-            <button className="google-btn" onClick={handleSignInWithGoogle}>
-              <img src="/assets/google-icon.png" alt="Google Logo" className="google-logo" />
-              {isFirstTime ? "Sign up" : "Log in"} with Google
-            </button>
-            <div className="separator"><span>OR</span></div>
-            <form onSubmit={handleFormSubmit}>
-              <label>Email</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-              <label>Password</label>
-              <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-              <button type="submit" className="login-btn">{isFirstTime ? "Sign Up" : "Log In"}</button>
-            </form>
-          </>
-        )}
+        <h2>{isFirstTime ? "Sign Up" : "Log In"}</h2>
+        <button className="google-btn" onClick={handleSignInWithGoogle}>
+          <img src="/assets/google-icon.png" alt="Google Logo" className="google-logo" />
+          {isFirstTime ? "Sign up" : "Log in"} with Google
+        </button>
+        <div className="separator"><span>OR</span></div>
+        <form onSubmit={handleFormSubmit}>
+          <label>Email</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} required />
+          <label>Password</label>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} required />
+          <button type="submit" className="login-btn">{isFirstTime ? "Sign Up" : "Log In"}</button>
+        </form>
       </div>
     </div>
   );
 }
+

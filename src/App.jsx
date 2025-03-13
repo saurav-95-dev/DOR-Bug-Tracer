@@ -9,16 +9,14 @@ import { auth } from "./firebase"; // Ensure correct path
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [isFirstTime, setIsFirstTime] = useState(true);
+  const [isFirstTime, setIsFirstTime] = useState(() => {
+    return localStorage.getItem("isFirstTime") !== "false"; // ✅ Correct retrieval
+  });
   const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true }]);
   const [selectedTab, setSelectedTab] = useState("Open");
 
-  // ✅ Load user & first-time flag from localStorage on mount
   useEffect(() => {
     const savedUser = JSON.parse(localStorage.getItem("user"));
-    const firstTime = localStorage.getItem("isFirstTime") !== "false";
-
-    setIsFirstTime(firstTime);
     if (savedUser) setUser(savedUser);
   }, []);
 
@@ -58,7 +56,7 @@ export default function App() {
     setTodos(db.todos);
   }, []);
 
-  // ✅ Handle Logout & Redirect to Sign-Up
+  // ✅ Handle Logout & Reset to Sign-Up Page
   async function handleLogout() {
     try {
       await signOut(auth);
@@ -78,9 +76,10 @@ export default function App() {
         setUser(currentUser);
         localStorage.setItem("user", JSON.stringify(currentUser));
         localStorage.setItem("isFirstTime", "false"); // ✅ Switch to Login if user exists
+        setIsFirstTime(false);
       } else {
         setUser(null);
-        setIsFirstTime(true); // ✅ Ensure first-time users see Sign-Up
+        setIsFirstTime(localStorage.getItem("isFirstTime") !== "false"); // ✅ Keep stored value
       }
     });
     return () => unsubscribe();
