@@ -8,12 +8,12 @@
 #### Link : https://oncall-tickets-dev-support-tracer.netlify.app/
 
 
-#### ACKNOWLEDGEMENTS :
+#### ACKNOWLEDGEMENTS : 
 
-#### DESCRIPTION :
+#### DESCRIPTION : This Project has been designed to keep track of sudden critical issue and requirement gathering of the MVP in order to faciliate and save time in the meeting sessions.
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication
+HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , Auth0
 
 #### CONCEPTS AND TECHNIQUES:
 useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
