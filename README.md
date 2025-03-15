@@ -10,7 +10,7 @@
 
 #### ACKNOWLEDGEMENTS : 
 
-#### DESCRIPTION : This Project has been designed to keep track of sudden critical issue and requirement gathering of the MVP in order to faciliate and save time in the meeting sessions.
+#### DESCRIPTION :DOR stands for Department of Revenue under central Government of India , which has been developed as MVP as of March 15, 2025 .
 
 #### TECHNOLOGIES :
 HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , Auth0
