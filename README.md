@@ -10,7 +10,7 @@
 
 #### ACKNOWLEDGEMENTS : 
 
-#### DESCRIPTION :DOR stands for Department of Revenue under central Government of India , which has been developed as MVP as of March 15, 2025 .
+#### DESCRIPTION : This Project is meant to handle and detect the ticekts of the e-courts system(MVP) of Indian via DOR-CIS which stands for Department of Revenue  (under the central Government of India) , which has been developed as MVP as of March 15, 2025 . This Model has been designed to handle the sudden unknown issues which are tested and raised by Technical Specialist in order to be facilitate to onCall-dev-support team & management unit to resolve the critical-Time-bound issues. It involves the tickets raised per different location as per filter by different Tribunals .
 
 #### TECHNOLOGIES :
 HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , Auth0
