@@ -14,7 +14,8 @@
 
 #### Key Features - 
 1) Tickets are segregated as per different Tribunals CA , AT and AA
-2) 
+2) Tickets can be marked as per the their severity Tribunal-wise
+3) Separate section for New-Requirements , Understanding-gap , Actual Bug , Improvements .
 
 #### TECHNOLOGIES :
 HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , Auth0
