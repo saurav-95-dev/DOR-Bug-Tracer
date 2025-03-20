@@ -9,19 +9,30 @@ import { auth } from "./firebase";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true }]);
+  const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true, file: null }]);
   const [selectedTab, setSelectedTab] = useState("Open");
 
   useEffect(() => {
-    // Check if the user is already logged in when the app loads
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
     return () => unsubscribe();
   }, []);
 
-  function handleAddTodo(newTodo) {
-    const newTodoList = [...todos, { input: newTodo, complete: false }];
+  function handleAddTodo(newTodo, file) {
+    const newTodoItem = {
+      input: newTodo,
+      complete: false,
+      file: file
+        ? {
+            name: file.name,
+            type: file.type,
+            url: URL.createObjectURL(file),
+          }
+        : null,
+    };
+
+    const newTodoList = [...todos, newTodoItem];
     setTodos(newTodoList);
     handleSaveData(newTodoList);
   }
