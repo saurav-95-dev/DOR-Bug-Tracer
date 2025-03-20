@@ -9,7 +9,7 @@ import { auth } from "./firebase";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true, file: null }]);
+  const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true, file: null, priority: "Medium" }]);
   const [selectedTab, setSelectedTab] = useState("Open");
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function App() {
     return () => unsubscribe();
   }, []);
 
-  function handleAddTodo(newTodo, file) {
+  function handleAddTodo(newTodo, file, priority) {
     const newTodoItem = {
       input: newTodo,
       complete: false,
@@ -30,6 +30,7 @@ export default function App() {
             url: URL.createObjectURL(file),
           }
         : null,
+      priority: priority || "Medium", 
     };
 
     const newTodoList = [...todos, newTodoItem];
