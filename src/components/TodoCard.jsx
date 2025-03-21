@@ -53,4 +53,8 @@ TodoCard.propTypes = {
   todoIndex: PropTypes.number.isRequired,
   handleCompleteTodo: PropTypes.func.isRequired,
   handleEditTodo: PropTypes.func.isRequired,
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 864904fedec852b69a77c9b78d210ec6f10dae65
