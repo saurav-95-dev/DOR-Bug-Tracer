@@ -31,8 +31,5 @@ export default function TodoInput(props) {
 
 TodoInput.propTypes = {
     handleAddTodo: PropTypes.func.isRequired
-<<<<<<< HEAD
+
 };
-=======
-};
->>>>>>> 864904fedec852b69a77c9b78d210ec6f10dae65
