@@ -253,3 +253,145 @@ html, body {
     justify-content: space-between;
   }
 }
+
+
+
+
+/* Add this to your index.css file */
+
+/* Base responsive improvements */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Make tab container fully responsive */
+.tab-container {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  margin-bottom: 0.5rem;
+}
+
+.tab-button {
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+  flex-shrink: 0;
+}
+
+/* Improve todo item display */
+.todo-item {
+  width: 100%;
+  padding: 0.75rem;
+  word-break: break-word;
+}
+
+.todo-item p {
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* File preview responsiveness */
+.file-preview {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.file-preview img,
+.file-preview video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Enhance input container responsiveness */
+.input-container {
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.input-container input[type="file"] {
+  width: 100%;
+}
+
+.input-container button {
+  flex-shrink: 0;
+}
+
+/* Responsive buttons in todo items */
+.todo-buttons {
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.todo-buttons button {
+  padding: 0.25rem 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Logout button styling */
+button[onClick="handleLogout"] {
+  margin-top: 1rem;
+  align-self: center;
+}
+
+/* Small screen optimizations */
+@media (max-width: 480px) {
+  .todo-item {
+    padding: 0.5rem;
+  }
+  
+  .todo-buttons {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .todo-buttons button {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .input-container {
+    flex-direction: column;
+  }
+  
+  .input-container button {
+    width: 100%;
+  }
+}
+
+/* Fix TodoCard editing mode */
+.todo-item input[type="text"] {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Auth component responsiveness */
+form {
+  max-width: 100%;
+  padding: 1rem;
+}
+
+/* Ensure scrollability for long todo lists */
+html, body {
+  height: 100%;
+}
+
+body {
+  overflow-y: auto;
+}
