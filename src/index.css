@@ -260,3 +260,50 @@ html, body {
 
 
 
+/* Update in index.css */
+#root {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0.5rem;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-list-container {
+  max-height: 70vh; /* Limit initial height */
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.todo-list-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.todo-list-container::-webkit-scrollbar-track {
+  background: var(--background-muted);
+}
+
+.todo-list-container::-webkit-scrollbar-thumb {
+  background: var(--color-link);
+  border-radius: 2px;
+}
+
+.input-container {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.logout-button {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 480px) {
+  .todo-list-container {
+    max-height: 60vh; /* Slightly smaller on mobile */
+  }
+}

@@ -82,13 +82,30 @@ export default function App() {
       {!user ? (
         <Auth setUser={setUser} />
       ) : (
-        <>
+        <div className="app-container">
           <Header todos={todos} />
-          <Tabs todos={todos} selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-          <TodoList handleEditTodo={handleEditTodo} handleCompleteTodo={handleCompleteTodo} handleDeleteTodo={handleDeleteTodo} todos={todos} selectedTab={selectedTab} />
+          <Tabs 
+            todos={todos} 
+            selectedTab={selectedTab} 
+            setSelectedTab={setSelectedTab} 
+          />
+          <div className="todo-list-container">
+            <TodoList 
+              handleEditTodo={handleEditTodo} 
+              handleCompleteTodo={handleCompleteTodo} 
+              handleDeleteTodo={handleDeleteTodo} 
+              todos={todos} 
+              selectedTab={selectedTab} 
+            />
+          </div>
           <TodoInput handleAddTodo={handleAddTodo} />
-          <button onClick={handleLogout}>Logout</button>
-        </>
+          <button 
+            className="logout-button" 
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+        </div>
       )}
     </>
   );
