@@ -307,3 +307,21 @@ html, body {
     max-height: 60vh; /* Slightly smaller on mobile */
   }
 }
+
+
+
+/* Add to index.css or update existing styles */
+@media (min-width: 640px) {
+  .logout-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    margin: 0;
+    width: auto;
+    z-index: 10;
+  }
+
+  .app-container {
+    position: relative;
+  }
+}
