@@ -9,8 +9,14 @@ import { auth } from "./firebase";
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [todos, setTodos] = useState([{ input: "Hello! Add your first todo!", complete: true, file: null, priority: "Medium" }]);
+  const [todos, setTodos] = useState([{ 
+    input: "Hello! Add your first todo!", 
+    complete: true, 
+    file: null, 
+    priority: "Medium" 
+  }]);
   const [selectedTab, setSelectedTab] = useState("Open");
+  const [selectedPriority, setSelectedPriority] = useState("All");
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -30,7 +36,7 @@ export default function App() {
             url: URL.createObjectURL(file),
           }
         : null,
-      priority: priority || "Medium", 
+      priority: priority || "Medium",
     };
 
     const newTodoList = [...todos, newTodoItem];
@@ -51,9 +57,12 @@ export default function App() {
     handleSaveData(newTodoList);
   }
 
-  function handleEditTodo(index, newInput) {
+  function handleEditTodo(index, newInput, newPriority) {
     const newTodoList = [...todos];
     newTodoList[index].input = newInput;
+    if (newPriority) {
+      newTodoList[index].priority = newPriority;
+    }
     setTodos(newTodoList);
     handleSaveData(newTodoList);
   }
@@ -84,23 +93,26 @@ export default function App() {
       ) : (
         <div className="app-container">
           <Header todos={todos} />
-          <Tabs 
-            todos={todos} 
-            selectedTab={selectedTab} 
-            setSelectedTab={setSelectedTab} 
+          <Tabs
+            todos={todos}
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            selectedPriority={selectedPriority}
+            setSelectedPriority={setSelectedPriority}
           />
           <div className="todo-list-container">
-            <TodoList 
-              handleEditTodo={handleEditTodo} 
-              handleCompleteTodo={handleCompleteTodo} 
-              handleDeleteTodo={handleDeleteTodo} 
-              todos={todos} 
-              selectedTab={selectedTab} 
+            <TodoList
+              handleEditTodo={handleEditTodo}
+              handleCompleteTodo={handleCompleteTodo}
+              handleDeleteTodo={handleDeleteTodo}
+              todos={todos}
+              selectedTab={selectedTab}
+              selectedPriority={selectedPriority}
             />
           </div>
           <TodoInput handleAddTodo={handleAddTodo} />
-          <button 
-            className="logout-button" 
+          <button
+            className="logout-button"
             onClick={handleLogout}
           >
             Logout

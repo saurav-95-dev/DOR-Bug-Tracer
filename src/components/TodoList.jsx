@@ -1,32 +1,53 @@
-//The TodoList is going to be dependent on the tab that's currently opened :
 import TodoCard from "./TodoCard";
 import PropTypes from "prop-types";
 
- 
 export default function TodoList(props) {
+  const { 
+    todos, 
+    selectedTab, 
+    selectedPriority,
+    ...restProps 
+  } = props;
 
-    const { todos , selectedTab} = props;
-    const filterTodosList = selectedTab == "All" ? 
-    todos :
-    selectedTab == "Completed" ? 
-    todos.filter(val=>val.complete) : 
-    todos.filter(val=>!val.complete);
+  // Filter todos based on tab and priority
+  const filterTodosList = todos.filter(todo => {
+    // Tab filtering
+    const tabMatch = 
+      selectedTab === "All" ||
+      (selectedTab === "Completed" && todo.complete) ||
+      (selectedTab === "Open" && !todo.complete);
 
-    
-    return (
-        <>
-            {
-                filterTodosList.map((todo , todoIndex) => {
-                    return (
-                        <TodoCard key={ todoIndex} todo={todo} {...props} todoIndex={todos.findIndex(val=>val.input==todo.input)}/>
-                    )
-                })
-            }
-        </>
-     )
+    // Priority filtering
+    const priorityMatch = 
+      selectedPriority === "All" || 
+      todo.priority === selectedPriority;
+
+    return tabMatch && priorityMatch;
+  });
+
+  return (
+    <>
+      {filterTodosList.map((todo, todoIndex) => {
+        // Find the original index in the todos array
+        const originalIndex = todos.findIndex(
+          val => val.input === todo.input && val.priority === todo.priority
+        );
+
+        return (
+          <TodoCard 
+            key={originalIndex} 
+            todo={todo} 
+            {...restProps} 
+            todoIndex={originalIndex}
+          />
+        );
+      })}
+    </>
+  );
 }
- 
+
 TodoList.propTypes = {
-    todos: PropTypes.array.isRequired,
-    selectedTab : PropTypes.array.isRequired,
+  todos: PropTypes.array.isRequired,
+  selectedTab: PropTypes.string.isRequired,
+  selectedPriority: PropTypes.string
 };

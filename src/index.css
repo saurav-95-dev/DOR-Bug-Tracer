@@ -325,3 +325,22 @@ html, body {
     position: relative;
   }
 }
+
+
+
+
+
+
+
+
+
+
+.priority-Low { background-color: #d4edda; }
+.priority-Medium { background-color: #fff3cd; }
+.priority-High { background-color: #f8d7da; }
+
+.priority-badge {
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
