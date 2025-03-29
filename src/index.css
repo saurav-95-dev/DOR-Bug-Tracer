@@ -327,14 +327,6 @@ html, body {
 }
 
 
-
-
-
-
-
-
-
-
 .priority-Low { background-color: #d4edda; }
 .priority-Medium { background-color: #fff3cd; }
 .priority-High { background-color: #f8d7da; }
@@ -343,4 +335,85 @@ html, body {
     padding: 2px 5px;
     border-radius: 3px;
     font-size: 0.8em;
+}
+
+/* This is to widen the add task input , widen docs attachment , narrowing the priority filter list*/
+/* Add this CSS to your stylesheet */
+
+/* Fix input container layout */
+.input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* Make todo input wider */
+.input-container input[type="text"] {
+  flex: 3;
+  min-width: 250px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Adjust priority selector width */
+.input-container select {
+  flex: 1;
+  max-width: 120px;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Fix file input styling */
+.input-container input[type="file"] {
+  flex: 2;
+  min-width: 180px;
+  padding: 6px;
+}
+
+/* Improve file preview display in todo cards */
+.file-preview {
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.file-preview a {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 5px 10px;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+/* Make sure todo cards have appropriate width */
+.todo-item {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .input-container input[type="text"],
+  .input-container select,
+  .input-container input[type="file"] {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+  }
 }
