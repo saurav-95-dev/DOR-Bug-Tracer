@@ -25,9 +25,3 @@ HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , 
 useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
 Hooks used - 
 
-#### CONTACT :
-
-You can reach out to me at -> devsaurabh086@gmail.com
-
-#### TRY IT --> 
-
