@@ -25,3 +25,16 @@ HTML5 , CSS , Javascript , React , Chakra UI , Firebase google Authentication , 
 useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
 Hooks used - 
 
+
+
+
+
+Development changes -->
+1)Inside Todo-card contents are now one below the other.
+2)Spacing fixed between First todo-card and the priority tab .
+
+
+
+
+
+
