@@ -431,7 +431,7 @@ html, body {
 
 /* OR alternatively add margin to the first todo card */
 .todo-list-container .todo-item:first-child {
-  margin-top: 5px;
+  margin-top: 0px;
 }
 
 /* Add some spacing between cards as well */
