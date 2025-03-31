@@ -13,7 +13,7 @@ export default function TodoCard({
     const [newPriority, setNewPriority] = useState(todo.priority);
     
     return (
-        <div className={`card todo-item priority-${todo.priority.toLowerCase()}`}>
+        <div className={`card todo-item priority-${todo.priority.toLowerCase()}` } >
             {isEditing ? (
                 <>
                     <input
