@@ -419,5 +419,46 @@ html, body {
 }
 
 
-/*Alignment-problem solution within the TodoCard */
+/*Fixing space with the forst todo card*/
+ 
 
+/* Add these styles to your CSS file */
+
+/* Add margin below the priority tabs */
+.priority-container {
+  margin-bottom: 20px;
+}
+
+/* OR alternatively add margin to the first todo card */
+.todo-list-container .todo-item:first-child {
+  margin-top: 5px;
+}
+
+/* Add some spacing between cards as well */
+.todo-item {
+  margin-bottom: 15px;
+}
+
+/* Enhance the vertical layout of todo content */
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-text {
+  margin: 0;
+  padding: 0;
+}
+
+.priority-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+.file-preview {
+  margin-top: 8px;
+}
