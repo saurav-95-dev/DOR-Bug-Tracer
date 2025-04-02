@@ -33,6 +33,8 @@ Hooks used -
 1)Inside Todo-card contents are now one below the other.
 2)Spacing fixed between First todo-card and the priority tab .
 
+3)The docs files persist issue occurs because we are using URL.createObjectURL(file) which creates temporary URLs that don't persist across browser sessions [1]. When we restart your app, these blob URLs are no longer valid.
+
 
 
 
