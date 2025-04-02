@@ -33,17 +33,28 @@ export default function App() {
         ? {
             name: file.name,
             type: file.type,
-            url: URL.createObjectURL(file),
+            url: null, // We'll add the URL after file conversion
           }
         : null,
       priority: priority || "Medium",
     };
-
-    const newTodoList = [...todos, newTodoItem];
-    setTodos(newTodoList);
-    handleSaveData(newTodoList);
+  
+    // Convert File to Base64 if file exists
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        newTodoItem.file.url = reader.result; // Base64 string representation
+        const newTodoList = [...todos, newTodoItem];
+        setTodos(newTodoList);
+        handleSaveData(newTodoList);
+      };
+    } else {
+      const newTodoList = [...todos, newTodoItem];
+      setTodos(newTodoList);
+      handleSaveData(newTodoList);
+    }
   }
-
   function handleCompleteTodo(index) {
     const newTodoList = [...todos];
     newTodoList[index].complete = true;
