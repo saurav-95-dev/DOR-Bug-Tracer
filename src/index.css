@@ -465,22 +465,3 @@ html, body {
 
 
 
-.todo-card {
-  display: flex;
-  align-items: center; /* Ensures vertical alignment */
-  justify-content: space-between; /* Keeps priority aligned */
-  gap: 8px; /* Adds spacing between elements */
-}
-
-.todo-text {
-  flex-grow: 1; /* Allows text to take available space */
-}
-
-.priority-label {
-  font-size: 14px;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
-  text-align: center;
-  min-width: 60px; /* Prevents shifting */
-}
