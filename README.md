@@ -35,7 +35,8 @@ Hooks used -
 
 3)The docs files persist issue occurs because we are using URL.createObjectURL(file) which creates temporary URLs that don't persist across browser sessions [1]. When we restart your app, these blob URLs are no longer valid.
 
-4)Add detail functionality added
+4)Add detail functionality added.
+5)Extra details description does not persist in screen alongwith the docs uploaded 
 
 
 
