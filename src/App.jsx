@@ -55,6 +55,26 @@ export default function App() {
       handleSaveData(newTodoList);
     }
   }
+
+  // Add this function to App.jsx
+function handleUpdateDetails(index, details) {
+  // Create a copy of todos
+  const newTodoList = [...todos];
+  
+  // Update the todo with new details
+  newTodoList[index] = {
+    ...newTodoList[index],
+    description: details.description,
+    attachments: details.attachments
+  };
+  
+  // Save updated todos
+  setTodos(newTodoList);
+  
+  // Save to localStorage to persist data on refresh
+  handleSaveData(newTodoList);
+}
+  
   function handleCompleteTodo(index) {
     const newTodoList = [...todos];
     newTodoList[index].complete = true;
@@ -115,7 +135,8 @@ export default function App() {
             <TodoList
               handleEditTodo={handleEditTodo}
               handleCompleteTodo={handleCompleteTodo}
-              handleDeleteTodo={handleDeleteTodo}
+                handleDeleteTodo={handleDeleteTodo}
+                handleUpdateDetails={handleUpdateDetails} // Add this line
               todos={todos}
               selectedTab={selectedTab}
               selectedPriority={selectedPriority}
