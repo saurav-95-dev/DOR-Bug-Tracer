@@ -40,6 +40,8 @@ Hooks used -
 Reason : 
 While we're updating the task details in the TodoCard component, these updates aren't being saved to localStorage when the page refreshes. The handleUpdateDetails function in TodoCard calls handleUpdateDetails passed from App.jsx, but this function doesn't exist in App.jsx yet to persist the data .
 
+6)Tribunals section added .
+
 
 
 
