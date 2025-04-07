@@ -39,22 +39,15 @@ const [todosByTribunal, setTodosByTribunal] = useState({
     return () => unsubscribe();
   }, []);
 
-  // 3. Updated handleAddTodo function
+// Fix for your handleAddTodo function
 function handleAddTodo(newTodo, file, priority) {
   const newTodoItem = {
     input: newTodo,
     complete: false,
-    file: file
-      ? {
-          name: file.name,
-          type: file.type,
-          url: null,
-        }
-      : null,
+    file: file ? { name: file.name, type: file.type, url: null } : null,
     priority: priority || "Medium",
   };
   
-  // Convert File to Base64 if file exists
   if (file) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -62,27 +55,34 @@ function handleAddTodo(newTodo, file, priority) {
       newTodoItem.file.url = reader.result;
       const newTodoList = [...todosByTribunal[selectedTribunal], newTodoItem];
       
-      // Update state for the selected tribunal only
-      setTodosByTribunal({
+      // Update state AND localStorage immediately in the same function
+      const updatedTodosByTribunal = {
         ...todosByTribunal,
         [selectedTribunal]: newTodoList
-      });
+      };
+      setTodosByTribunal(updatedTodosByTribunal);
       
-      handleSaveData();
+      // Save to localStorage immediately with the updated data
+      localStorage.setItem('todo-app', JSON.stringify({
+        todosByTribunal: updatedTodosByTribunal,
+        selectedTribunal: selectedTribunal
+      }));
     };
   } else {
     const newTodoList = [...todosByTribunal[selectedTribunal], newTodoItem];
-    
-    // Update state for the selected tribunal only
-    setTodosByTribunal({
+    const updatedTodosByTribunal = {
       ...todosByTribunal,
       [selectedTribunal]: newTodoList
-    });
+    };
+    setTodosByTribunal(updatedTodosByTribunal);
     
-    handleSaveData();
+    // Save to localStorage immediately with the updated data
+    localStorage.setItem('todo-app', JSON.stringify({
+      todosByTribunal: updatedTodosByTribunal,
+      selectedTribunal: selectedTribunal
+    }));
   }
 }
-
 // 7. Add handleUpdateDetails function 
 function handleUpdateDetails(index, details) {
   const newTodoList = [...todosByTribunal[selectedTribunal]];
