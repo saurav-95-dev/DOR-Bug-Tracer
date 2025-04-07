@@ -40,6 +40,18 @@ Hooks used -
 Reason : 
 While we're updating the task details in the TodoCard component, these updates aren't being saved to localStorage when the page refreshes. The handleUpdateDetails function in TodoCard calls handleUpdateDetails passed from App.jsx, but this function doesn't exist in App.jsx yet to persist the data .
 
+6) Tribunals section added .
+
+--> Scrolling feature disrupted .
+--> Persistence of task tribunal-wise is not made feassible yet . 
+
+Issue -->
+
+1)The issue persist in how the data is been stored in the local-storage 
+2)At handleSaveData() function, seems correctly storing the data in localStorage, but there's likely a timing issue .
+(Above issue has been resolved on April 7th , 2025).
+
+
 
 
 
