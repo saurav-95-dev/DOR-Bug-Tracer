@@ -49,6 +49,7 @@ Issue -->
 
 1)The issue persist in how the data is been stored in the local-storage 
 2)At handleSaveData() function, seems correctly storing the data in localStorage, but there's likely a timing issue .
+(Above issue has been resolved on April 7th , 2025).
 
 
 
