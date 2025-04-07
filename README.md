@@ -45,6 +45,11 @@ While we're updating the task details in the TodoCard component, these updates a
 --> Scrolling feature disrupted .
 --> Persistence of task tribunal-wise is not made feassible yet . 
 
+Issue -->
+
+1)The issue persist in how the data is been stored in the local-storage 
+2)At handleSaveData() function, seems correctly storing the data in localStorage, but there's likely a timing issue .
+
 
 
 
