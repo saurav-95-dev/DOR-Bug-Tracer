@@ -52,6 +52,9 @@ Issue -->
 (Above issue has been resolved on April 7th , 2025).
 
 
+7)Requirement --> Swipe next-previous functionality to see the status of tribunal location-wise.
+
+
 
 
 
