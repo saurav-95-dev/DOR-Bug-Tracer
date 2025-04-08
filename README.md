@@ -52,6 +52,13 @@ Issue -->
 (Above issue has been resolved on April 7th , 2025).
 
 
+7)Requirement --> Swipe next-previous functionality to see the status of tribunal location-wise using linked-list datastructure.
+
+8)Requirement --> Add a search functionality to locate a bug or addtional requirement via implementing binary search . 
+
+
+
+
 
 
 
