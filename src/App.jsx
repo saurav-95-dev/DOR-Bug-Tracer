@@ -17,7 +17,7 @@ export default function App() {
     'CA': ['New Delhi', 'Mumbai', 'Kolkata'],
     'AT': ['New Delhi', 'Chennai', 'Ahmedabad'],
     'AA': ['New Delhi', 'Bangalore'],
-    'EF': ['Mumbai', 'Kolkata']
+    'EF': ['Mumbai', 'Kolkata' , 'New Delhi'],
   };
   
   const [tribunals] = useState(['CA', 'AT', 'AA', 'EF']);
