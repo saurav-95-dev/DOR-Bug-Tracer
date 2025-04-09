@@ -56,6 +56,10 @@ Issue -->
 
 8)Requirement --> Add a search functionality to locate a bug or addtional requirement via implementing binary search . 
 
+Progress : 
+7--> Swipe next-previous feature added stage-1
+
+
 
 
 
