@@ -1,0 +1,89 @@
+/* LocationStyles.css */
+
+.location-navigator {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .location-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .location-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .location-button {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: rgb(104, 181, 243);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .location-button.location-selected {
+    background-color: #007bff;
+    color: black;
+    border-color: #0069d9;
+  }
+  
+  .swipeable-view {
+    width: 100%;
+    position: relative;
+    cursor: grab;
+  }
+  
+  .swipeable-view:active {
+    cursor: grabbing;
+  }
+  
+  .swipe-indicators {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .swipeable-view:hover .swipe-indicators {
+    opacity: 0.3;
+  }
+  
+  .swipe-left-indicator,
+  .swipe-right-indicator {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  
+  .swipe-left-indicator {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  .swipe-right-indicator {
+    margin-right: auto;
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .location-header {
+      flex-direction: column;
+    }
+    
+    .location-selector {
+      margin-top: 10px;
+    }
+  }
