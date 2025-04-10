@@ -59,6 +59,15 @@ Issue -->
 Progress : 
 7--> Swipe next-previous feature added in CA Tribunal alongwith btn . 
 
+8) Last 4 feature requirement : 
+--> Raise this issue at NIC Developers . 
+--> No of upvotes count at each cards .
+--> Firebase Integration for data storage .
+--> Making UI responsive .
+
+   
+   
+
 
 
 
