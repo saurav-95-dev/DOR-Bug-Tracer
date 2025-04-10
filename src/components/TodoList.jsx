@@ -23,6 +23,7 @@ export default function TodoList(props) {
       todo.priority === selectedPriority;
 
     return tabMatch && priorityMatch;
+    
   });
 
   return (

@@ -1,0 +1,118 @@
+/* LocationNavigation.css */
+.location-navigation {
+    margin: 20px 0;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .location-navigation h3 {
+    margin-top: 0;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .location-navigation-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .nav-button {
+    background-color: #5c6bc0;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-width: 100px;
+  }
+  
+  .nav-button:hover {
+    background-color: #3f51b5;
+  }
+  
+  .nav-button:disabled {
+    background-color: #c5cae9;
+    cursor: not-allowed;
+  }
+  
+  .current-location {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .location-name {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    color: #1a237e;
+  }
+  
+  .location-indicators {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .location-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #c5cae9;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .location-indicator:hover {
+    transform: scale(1.2);
+  }
+  
+  .location-indicator.active {
+    background-color: #3f51b5;
+    transform: scale(1.2);
+  }
+  
+  /* Add responsive styles */
+  @media (max-width: 600px) {
+    .location-navigation-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .nav-button {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .current-location {
+      order: -1;
+      margin-bottom: 15px;
+    }
+  }
+  
+  /* Add swipe animations */
+  @keyframes swipeLeft {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes swipeRight {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .swipe-left {
+    animation: swipeLeft 0.3s ease-out;
+  }
+  
+  .swipe-right {
+    animation: swipeRight 0.3s ease-out;
+  }
