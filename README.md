@@ -74,6 +74,7 @@ Progress :
 --> Provision to raise the ticket directly to NIC management-unit .
 --> Firebase-data-storage integration.
 --> Responsive UI . 
+--> Applying binary search on React  search input feature
 
 
    
