@@ -465,7 +465,7 @@ html, body {
 
 
 /* Adding styling or upvote btn */
-/* .vote-container {
+.vote-container {
   display: flex;
   align-items: center;
   margin-right: 10px;
@@ -500,4 +500,4 @@ html, body {
 
 .upvote-label{
   margin-bottom: 7px ;
-} */
+}
