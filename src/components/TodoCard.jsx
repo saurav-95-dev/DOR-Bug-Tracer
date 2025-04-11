@@ -7,7 +7,10 @@ export default function TodoCard({
     todoIndex,
     handleCompleteTodo,
     handleEditTodo,
-    handleUpdateDetails }) {
+    handleUpdateDetails ,  handleVote // New prop
+}) {
+
+
     const [isEditing, setIsEditing] = useState(false);
     const [newInput, setNewInput] = useState(todo.input);
     const [newPriority, setNewPriority] = useState(todo.priority);
@@ -70,6 +73,7 @@ export default function TodoCard({
     
     return (
         <>
+        
             <div className={`card todo-item priority-${todo.priority.toLowerCase()}`}>
                 <div className="todo-content">
                     {isEditing ? (
@@ -114,7 +118,31 @@ export default function TodoCard({
                                 )}
                             </div>
                         </div>
+                        
                     )}
+
+<div className="vote-container">
+            <h5 className='upvote-label'>Upvote or downvote here:</h5>
+            <span className="votes-count">{todo.votes || 0}</span>
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                handleVote(todoIndex, 'upvote');
+              }}
+              className="vote-btn upvote-btn"
+            >
+              <i className="fa-solid fa-arrow-up"></i>
+            </button>
+            <button 
+              onClick={(e) => {
+                e.stopPropagation();
+                handleVote(todoIndex, 'downvote');
+              }}
+              className="vote-btn downvote-btn"
+            >
+              <i className="fa-solid fa-arrow-down"></i>
+            </button>
+          </div>
                 </div>
                 
                 <div className="todo-buttons">

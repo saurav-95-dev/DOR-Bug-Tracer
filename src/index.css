@@ -464,4 +464,40 @@ html, body {
 }
 
 
+/* Adding styling or upvote btn */
+/* .vote-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
 
+.votes-count {
+  margin: 0 5px;
+  font-weight: bold;
+}
+
+.vote-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  color: #777;
+}
+
+.upvote-btn:hover {
+  color: #4CAF50;
+}
+
+.downvote-btn:hover {
+  color: #F44336;
+}
+
+
+
+.upvote-label{
+  margin-bottom: 7px ;
+} */
