@@ -67,7 +67,13 @@ Progress :
 
    
 Progress : 
-9 --> Upvote-Downvote dynamic count feature added
+9 --> Upvote-Downvote dynamic count feature added ,
+--> Mimicked Quora.com upvote styling (index.css).
+
+10)Remaining Requirements :
+--> Provision to raise the ticket directly to NIC management-unit .
+--> Firebase-data-storage integration.
+--> Responsive UI . 
 
 
    
