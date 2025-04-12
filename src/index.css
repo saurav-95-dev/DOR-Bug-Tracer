@@ -501,3 +501,19 @@ html, body {
 .upvote-label{
   margin-bottom: 7px ;
 }
+
+
+.report-nic-button {
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  background-color: #f0f0f0;
+  color: black;
+  cursor: pointer;
+}
+
+.report-nic-button.success {
+  background-color: #28a745;
+  color: white;
+  border-color: #218838;
+}

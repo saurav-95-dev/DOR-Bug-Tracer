@@ -9,17 +9,17 @@ export default function TodoCard({
     todoIndex,
     handleCompleteTodo,
     handleEditTodo,
-    handleUpdateDetails ,  handleVote // New prop
+    handleUpdateDetails,
+    handleVote
 }) {
-
-
     const [isEditing, setIsEditing] = useState(false);
     const [newInput, setNewInput] = useState(todo.input);
     const [newPriority, setNewPriority] = useState(todo.priority);
     const [showDetails, setShowDetails] = useState(false);
     const [description, setDescription] = useState(todo.description || '');
     const [uploadedFiles, setUploadedFiles] = useState(todo.attachments || []);
-    
+    const [reportSuccess, setReportSuccess] = useState(false);
+
     const handleFileUpload = (e) => {
         const files = Array.from(e.target.files);
         const newFiles = files.map(file => ({
@@ -28,11 +28,10 @@ export default function TodoCard({
             size: file.size,
             url: URL.createObjectURL(file)
         }));
-        
+
         const updatedFiles = [...uploadedFiles, ...newFiles];
         setUploadedFiles(updatedFiles);
-        
-        // Update todo with new attachments
+
         if (handleUpdateDetails) {
             handleUpdateDetails(todoIndex, {
                 description,
@@ -40,7 +39,7 @@ export default function TodoCard({
             });
         }
     };
-    
+
     const saveDetails = () => {
         if (handleUpdateDetails) {
             handleUpdateDetails(todoIndex, {
@@ -50,7 +49,7 @@ export default function TodoCard({
         }
         setShowDetails(false);
     };
-    
+
     const renderFilePreview = (file) => {
         if (file.type.startsWith('image/')) {
             return <img src={file.url} alt={file.name} width="100" />;
@@ -77,24 +76,23 @@ export default function TodoCard({
         try {
             const reportRef = collection(db, "nicReports");
             await addDoc(reportRef, {
-                todoId: todo.id || todoIndex, // use todoIndex if there's no ID
+                todoId: todo.id || todoIndex,
                 input: todo.input,
                 priority: todo.priority,
                 timestamp: serverTimestamp(),
-                description: description || '', // include existing description if any
+                description: description || '',
                 attachments: uploadedFiles || [],
             });
-            alert("NIC reported successfully.");
+
+            setReportSuccess(true);
         } catch (error) {
             console.error("Error reporting NIC:", error);
             alert("Failed to report NIC. Please try again.");
         }
     };
-    
-    
+
     return (
         <>
-        
             <div className={`card todo-item priority-${todo.priority.toLowerCase()}`}>
                 <div className="todo-content">
                     {isEditing ? (
@@ -119,7 +117,7 @@ export default function TodoCard({
                         <div className="todo-info">
                             <p className="todo-text">{todo.input}</p>
                             <span className="priority-badge">{todo.priority}</span>
-                            
+
                             <div className="file-preview">
                                 {todo.file ? (
                                     <>
@@ -139,33 +137,32 @@ export default function TodoCard({
                                 )}
                             </div>
                         </div>
-                        
                     )}
 
-<div className="vote-container">
-            <h5 className='upvote-label'>Upvote or downvote here:</h5>
-            <span className="votes-count">{todo.votes || 0}</span>
-            <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                handleVote(todoIndex, 'upvote');
-              }}
-              className="vote-btn upvote-btn"
-            >
-              <i className="fa-solid fa-arrow-up"></i>
-            </button>
-            <button 
-              onClick={(e) => {
-                e.stopPropagation();
-                handleVote(todoIndex, 'downvote');
-              }}
-              className="vote-btn downvote-btn"
-            >
-              <i className="fa-solid fa-arrow-down"></i>
-            </button>
-          </div>
+                    <div className="vote-container">
+                        <h5 className='upvote-label'>Upvote or downvote here:</h5>
+                        <span className="votes-count">{todo.votes || 0}</span>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleVote(todoIndex, 'upvote');
+                            }}
+                            className="vote-btn upvote-btn"
+                        >
+                            <i className="fa-solid fa-arrow-up"></i>
+                        </button>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                handleVote(todoIndex, 'downvote');
+                            }}
+                            className="vote-btn downvote-btn"
+                        >
+                            <i className="fa-solid fa-arrow-down"></i>
+                        </button>
+                    </div>
                 </div>
-                
+
                 <div className="todo-buttons">
                     {isEditing ? (
                         <button
@@ -192,43 +189,46 @@ export default function TodoCard({
                             </button>
                             <button onClick={() => setShowDetails(true)} className="details-button">
                                 <h6>Details</h6>
-                                </button>
+                            </button>
 
-                                 {/* 🔴 NEW REPORT NIC BUTTON */}
-            <button onClick={handleReportNIC} className="report-nic-button">
-                <h6>Report NIC</h6>
-            </button>
-
+                            {/* Report NIC Button */}
+                            <button
+                                onClick={handleReportNIC}
+                                className={`report-nic-button ${reportSuccess ? 'success' : ''}`}
+                                disabled={reportSuccess}
+                            >
+                                <h6>{reportSuccess ? "Reported" : "Report NIC"}</h6>
+                            </button>
                         </>
                     )}
                 </div>
             </div>
-            
+
             {showDetails && (
                 <div className="todo-details-modal">
                     <div className="todo-details-content">
                         <h3>Task Details</h3>
                         <h4>{todo.input}</h4>
-                        
+
                         <div className="detail-section">
                             <label>Description:</label>
-                            <textarea 
-                                value={description} 
+                            <textarea
+                                value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 placeholder="Add detailed description..."
                                 rows="4"
                             ></textarea>
                         </div>
-                        
+
                         <div className="detail-section">
                             <label>Attachments:</label>
-                            <input 
-                                type="file" 
-                                onChange={handleFileUpload} 
-                                multiple 
+                            <input
+                                type="file"
+                                onChange={handleFileUpload}
+                                multiple
                                 accept="image/*,video/*,audio/*,.pdf,.doc,.docx,.xls,.xlsx,.txt"
                             />
-                            
+
                             <div className="attachments-preview">
                                 {uploadedFiles.length > 0 ? (
                                     uploadedFiles.map((file, index) => (
@@ -241,7 +241,7 @@ export default function TodoCard({
                                 )}
                             </div>
                         </div>
-                        
+
                         <div className="detail-actions">
                             <button onClick={saveDetails}>Save</button>
                             <button onClick={() => setShowDetails(false)}>Close</button>
@@ -259,5 +259,6 @@ TodoCard.propTypes = {
     todoIndex: PropTypes.number.isRequired,
     handleCompleteTodo: PropTypes.func.isRequired,
     handleEditTodo: PropTypes.func.isRequired,
-    handleUpdateDetails: PropTypes.func
+    handleUpdateDetails: PropTypes.func,
+    handleVote: PropTypes.func.isRequired
 };
