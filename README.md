@@ -74,7 +74,7 @@ Progress :
 --> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
 --> Firebase-data-storage integration.
 --> Responsive UI . 
---> Applying binary search on React  search input feature .
+--> Applying search functionality via binary search / hashmap / Debounce on React  search input feature .
 
 
 
