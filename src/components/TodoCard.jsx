@@ -193,12 +193,12 @@ export default function TodoCard({
 
                             {/* Report NIC Button */}
                             <button
-                                onClick={handleReportNIC}
-                                className={`report-nic-button ${reportSuccess ? 'success' : ''}`}
-                                disabled={reportSuccess}
-                            >
-                                <h6>{reportSuccess ? "Reported" : "Report NIC"}</h6>
-                            </button>
+  onClick={handleReportNIC}
+  style={reportSuccess ? { backgroundColor: '#28a745', color: 'white' } : {}}
+>
+  <h6>{reportSuccess ? "Reported" : "Report NIC"}</h6>
+</button>
+
                         </>
                     )}
                 </div>
