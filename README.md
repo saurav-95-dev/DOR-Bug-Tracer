@@ -71,10 +71,13 @@ Progress :
 --> Mimicked Quora.com upvote styling (index.css).
 
 10)Remaining Requirements :
---> Provision to raise the ticket directly to NIC management-unit .
+--> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
 --> Firebase-data-storage integration.
 --> Responsive UI . 
---> Applying binary search on React  search input feature
+--> Applying binary search on React  search input feature .
+
+
+
 
 
    
