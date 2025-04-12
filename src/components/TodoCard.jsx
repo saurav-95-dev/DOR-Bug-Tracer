@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase"; // adjust path as needed
 
 export default function TodoCard({
     todo,
@@ -70,6 +72,25 @@ export default function TodoCard({
             return <a href={file.url} download>{file.name}</a>;
         }
     };
+
+    const handleReportNIC = async () => {
+        try {
+            const reportRef = collection(db, "nicReports");
+            await addDoc(reportRef, {
+                todoId: todo.id || todoIndex, // use todoIndex if there's no ID
+                input: todo.input,
+                priority: todo.priority,
+                timestamp: serverTimestamp(),
+                description: description || '', // include existing description if any
+                attachments: uploadedFiles || [],
+            });
+            alert("NIC reported successfully.");
+        } catch (error) {
+            console.error("Error reporting NIC:", error);
+            alert("Failed to report NIC. Please try again.");
+        }
+    };
+    
     
     return (
         <>
@@ -171,7 +192,13 @@ export default function TodoCard({
                             </button>
                             <button onClick={() => setShowDetails(true)} className="details-button">
                                 <h6>Details</h6>
-                            </button>
+                                </button>
+
+                                 {/* 🔴 NEW REPORT NIC BUTTON */}
+            <button onClick={handleReportNIC} className="report-nic-button">
+                <h6>Report NIC</h6>
+            </button>
+
                         </>
                     )}
                 </div>
