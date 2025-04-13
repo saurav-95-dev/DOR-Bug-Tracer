@@ -72,9 +72,12 @@ Progress :
 
 10)Remaining Requirements :
 --> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
---> Firebase-data-storage integration.
+--> Firebase-data-storage integration. (CRUD Operations provision)
 --> Responsive UI . 
 --> Applying search functionality via binary search / hashmap / Debounce on React  search input feature .
+
+Progress : 
+--> Report NIC provision completed stage-1
 
 
 
