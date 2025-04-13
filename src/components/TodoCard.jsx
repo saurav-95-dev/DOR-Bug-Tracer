@@ -140,7 +140,7 @@ export default function TodoCard({
                     )}
 
                     <div className="vote-container">
-                        <h5 className='upvote-label'>Upvote or downvote here:</h5>
+                        <h5 className='upvote-label'>Upvote or downvote:</h5>
                         <span className="votes-count">{todo.votes || 0}</span>
                         <button
                             onClick={(e) => {
