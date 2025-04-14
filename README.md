@@ -77,7 +77,7 @@ Progress :
 --> Applying search functionality via binary search / hashmap / Debounce on React  search input feature .
 
 Progress : 
---> Report NIC provision completed stage-1
+--> Report NIC provision completed stage-1 . Issue --> Redundant data storage in Firestore 
 
 
 
