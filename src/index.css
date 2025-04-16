@@ -517,3 +517,38 @@ html, body {
   color: white;
   border-color: #46f26c;
 }
+
+
+/*........................................................................... Added on 16 April , 2025*/
+/* Mobile styles */
+@media (max-width: 768px) {
+  .app-container {
+    width: 95%;
+    padding: 10px;
+  }
+  .tribunal-buttons, .tribunal-selector {
+    flex-direction: column;
+  }
+}
+
+
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+}
+.input-container {
+  position: sticky;
+  bottom: 0;
+  background: #252525;
+  padding: 10px 0;
+  border-radius: 8px;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
