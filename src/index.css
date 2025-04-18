@@ -640,7 +640,7 @@ html, body {
   .input-container input,
   .input-container select,
   .input-container button {
-    height: 36px;
+    height: 20px;
     font-size: 14px;
     padding: 0 8px;
   }
