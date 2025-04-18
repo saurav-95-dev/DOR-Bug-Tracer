@@ -641,7 +641,7 @@ html, body {
   .input-container select,
   .input-container button {
     height: 20px;
-    font-size: 14px;
+    font-size: 10px;
     padding: 0 8px;
   }
   
