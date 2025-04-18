@@ -521,34 +521,145 @@ html, body {
 
 /*........................................................................... Added on 16 April , 2025*/
 /* Mobile styles */
-@media (max-width: 768px) {
-  .app-container {
-    width: 95%;
-    padding: 10px;
-  }
-  .tribunal-buttons, .tribunal-selector {
-    flex-direction: column;
-  }
-}
+/* Add these styles to fix the mobile view issue */
 
-
-.todo-list-container {
-  flex: 1;
-  overflow-y: auto;
-}
-.input-container {
-  position: sticky;
-  bottom: 0;
-  background: #252525;
-  padding: 10px 0;
-  border-radius: 8px;
-}
+/* Main container styles */
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  overflow: hidden;
 }
 
-html {
-  scroll-behavior: smooth !important;
+/* Make todolist scrollable */
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 10px;
+}
+
+/* Fix the input height on mobile */
+.input-container {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+  /* Limit height on mobile devices */
+  max-height: 120px;
+}
+
+/* Make input more compact on mobile */
+@media screen and (max-width: 768px) {
+  .input-container {
+    padding: 8px 0;
+    max-height: 90px;
+  }
+  
+  .input-container input[type="text"] {
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .input-container select {
+    height: 32px;
+    font-size: 14px;
+  }
+  
+  .input-container input[type="file"] {
+    height: 32px;
+    font-size: 12px;
+  }
+  
+  .input-container button {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+/* Fix mobile viewport height issues */
+@media screen and (max-width: 768px) {
+  .app-container {
+    height: -webkit-fill-available;
+  }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+
+
+/* Fix for mobile scrolling issues */
+
+/* Ensure proper viewport settings */
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
+
+/* Base container styles */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  height: -webkit-fill-available; /* iOS Safari fix */
+  overflow: hidden;
+  position: fixed; /* Prevent address bar issues */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Make the todo list scrollable */
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  padding-bottom: 70px; /* Space for the input bar */
+}
+
+/* Fix the add task bar at the bottom */
+.input-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(35, 30, 30);
+  padding: 10px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  max-height: 60px; /* Control height */
+  display: flex;
+  align-items: center;
+}
+
+/* Make inputs more compact on mobile */
+@media screen and (max-width: 768px) {
+  .input-container input,
+  .input-container select,
+  .input-container button {
+    height: 36px;
+    font-size: 14px;
+    padding: 0 8px;
+  }
+  
+  /* Hide file input on very small screens if needed */
+  @media screen and (max-width: 480px) {
+    .input-container input[type="file"] {
+      width: 80px;
+      overflow: hidden;
+    }
+  }
+}
+
+/* Fix body and html to prevent scroll issues */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
