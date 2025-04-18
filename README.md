@@ -79,7 +79,9 @@ Progress :
 Progress : 
 --> Report NIC provision completed stage-1 . Issue --> Redundant data storage in Firestore . 
 
-Priority -> Search Functionality + UI-responsiveness
+Priority -> Select issues by date + UI-responsiveness
+
+
    
 
 
