@@ -75,6 +75,7 @@ Progress :
 --> Firebase-data-storage integration. (CRUD Operations provision)
 --> Responsive UI . 
 --> Applying search functionality via binary search / hashmap / Debounce on React  search input feature .
+--> Video call functionality for different locations.
 
 Progress : 
 --> Report NIC provision completed stage-1 . Issue --> Redundant data storage in Firestore . 
