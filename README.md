@@ -74,13 +74,17 @@ Progress :
 --> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
 --> Firebase-data-storage integration. (CRUD Operations provision)
 --> Responsive UI . 
---> Applying search functionality via binary search / hashmap / Debounce on React  search input feature .
+--> Applying search functionality via binary search / hashmap / Debounce on React  search input feature.
 --> Video call functionality for different locations.
+--> Video 
 
 Progress : 
 --> Report NIC provision completed stage-1 . Issue --> Redundant data storage in Firestore . 
 
-Priority -> Select issues by date + UI-responsiveness
+Priority -> Select issues by date + UI-responsivenes.
+
+--> National 
+
 
 
    
