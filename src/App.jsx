@@ -13,10 +13,10 @@ import "./LocationNavigation.css"
 
 export default function App() {
   const [user, setUser] = useState(null);
-  const [todos, setTodos] = useState([{ 
-    input: "Hello! Add your first todo!", 
-    complete: true, 
-    file: null, 
+  const [todos, setTodos] = useState([{
+    input: "Hello! Add your first todo!",
+    complete: true,
+    file: null,
     priority: "Medium",
     votes: 0 // Added votes field
   }]);
@@ -55,7 +55,7 @@ export default function App() {
         input: "Hello! Add your first CA Chennai todo!",
         complete: true,
         file: null,
-        priority: "Medium", 
+        priority: "Medium",
         votes: 0 // Added votes field
       }]
     },
@@ -240,7 +240,7 @@ export default function App() {
 
   // Updated handleSaveData function
   function handleSaveData() {
-    localStorage.setItem('todo-app', JSON.stringify({ 
+    localStorage.setItem('todo-app', JSON.stringify({
       todosByTribunal: todosByTribunal,
       selectedTribunal: selectedTribunal,
       selectedLocation: selectedLocation
@@ -386,7 +386,7 @@ export default function App() {
       // Process CA tribunal with locations
       if (updatedTodosByTribunal.CA) {
         Object.keys(updatedTodosByTribunal.CA).forEach(location => {
-          updatedTodosByTribunal.CA[location] = updatedTodosByTribunal.CA[location].map(todo => 
+          updatedTodosByTribunal.CA[location] = updatedTodosByTribunal.CA[location].map(todo =>
             todo.votes !== undefined ? todo : { ...todo, votes: 0 }
           );
         });
@@ -395,7 +395,7 @@ export default function App() {
       // Process other tribunals
       ['AT', 'AA', 'EF'].forEach(tribunal => {
         if (Array.isArray(updatedTodosByTribunal[tribunal])) {
-          updatedTodosByTribunal[tribunal] = updatedTodosByTribunal[tribunal].map(todo => 
+          updatedTodosByTribunal[tribunal] = updatedTodosByTribunal[tribunal].map(todo =>
             todo.votes !== undefined ? todo : { ...todo, votes: 0 }
           );
         }
@@ -452,14 +452,14 @@ export default function App() {
         <div className="app-container">
           <Header todos={currentTodos} />
           
-          {/* Add the tribunal selector component */}
-          <TribunalSelector 
+          {/* Tribunal selector */}
+          <TribunalSelector
             tribunals={tribunals}
             selectedTribunal={selectedTribunal}
             setSelectedTribunal={setSelectedTribunal}
           />
           
-          {/* Add the location navigation component */}
+          {/* Location navigation */}
           <LocationNavigation
             selectedTribunal={selectedTribunal}
             selectedLocation={selectedLocation}
@@ -473,19 +473,24 @@ export default function App() {
             selectedPriority={selectedPriority}
             setSelectedPriority={setSelectedPriority}
           />
+          
+          {/* Add a specific height class to ensure proper space */}
           <div className="todo-list-container">
             <TodoList
               handleEditTodo={handleEditTodo}
               handleCompleteTodo={handleCompleteTodo}
               handleDeleteTodo={handleDeleteTodo}
               handleUpdateDetails={handleUpdateDetails}
-              handleVote={handleVote} // Pass the new function
+              handleVote={handleVote}
               todos={currentTodos}
               selectedTab={selectedTab}
               selectedPriority={selectedPriority}
             />
           </div>
+          
+          {/* Fixed positioning for input */}
           <TodoInput handleAddTodo={handleAddTodo} />
+          
           <button
             className="logout-button"
             onClick={handleLogout}
@@ -496,4 +501,5 @@ export default function App() {
       )}
     </>
   );
+
 }

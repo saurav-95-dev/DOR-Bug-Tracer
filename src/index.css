@@ -319,6 +319,7 @@ html, body {
     margin: 0;
     width: auto;
     z-index: 10;
+   
   }
 
   .app-container {
@@ -552,3 +553,85 @@ html, body {
 html {
   scroll-behavior: smooth !important;
 }
+
+
+
+/*..........................Today ........................*/
+/* Update these styles in your index.css file */
+
+/* Fix app container height and display */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 1vh;
+  max-height: 1vh;
+}
+
+/* Ensure todo list container has proper flex */
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 200px; /* Ensure minimum height for visibility */
+}
+
+/* Fix input container to not take excessive space */
+.input-container {
+  position: sticky;
+  bottom: 0;
+  background: #252525;
+  padding: 10px 0;
+  border-radius: 8px 8px 0 0;
+  flex-shrink: 0; /* Prevent flex shrinking */
+  z-index: 10;
+}
+
+/* Mobile specific improvements */
+@media (max-width: 768px) {
+  .input-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 8px;
+    gap: 8px;
+  }
+  
+  .input-container input[type="text"],
+  .input-container select,
+  .input-container input[type="file"],
+  .input-container button {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 5px; /* Reduced from 10px */
+    height: auto;
+    padding: 6px; /* Reduced padding */
+  }
+  
+  /* Make file input smaller */
+  .input-container input[type="file"] {
+    height: 30px;
+    padding: 2px;
+  }
+  
+  /* Fix tab and priority selector height */
+  .tab-button, .priority-button {
+    padding: 5px 8px;
+  }
+  
+  /* Ensure todo list gets minimum space */
+  .todo-list-container {
+    min-height: 50vh;
+    max-height: 60vh;
+  }
+}
+
+/* Fix input container layout for non-mobile */
+@media (min-width: 769px) {
+  .input-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px;
+    height: auto;
+  }
+}
+
+/*.......................................*/
