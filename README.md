@@ -76,7 +76,7 @@ Progress :
 --> Responsive UI . 
 --> Applying search functionality via binary search / hashmap / Debounce on React  search input feature.
 --> Video call functionality for different locations.
---> Video  
+--> Integrating Calender 
 
 
 
