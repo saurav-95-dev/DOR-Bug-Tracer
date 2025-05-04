@@ -19,7 +19,7 @@
 4) Separate sections for video and screenshots regarding new requirements and bugs on the operations clients and higher government officials.
 
 #### TECHNOLOGIES :
-HTML5 , CSS , Javascript , React , Firebase google Authentication 
+HTML5 , CSS , Javascript , React , Firebase google Authentication , Firebase-Firestore
 
 #### CONCEPTS AND TECHNIQUES:
 useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
