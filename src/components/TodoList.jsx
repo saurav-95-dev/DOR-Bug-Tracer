@@ -27,14 +27,13 @@ export default function TodoList(props) {
   });
 
   return (
-    <>
+    <div className="todo-list-responsive">
       {filterTodosList.length > 0 ? (
         filterTodosList.map((todo, todoIndex) => {
-          // Find the original index in the todos array
           const originalIndex = todos.findIndex(
             val => val.input === todo.input && val.priority === todo.priority
           );
-
+          
           return (
             <TodoCard
               key={originalIndex}
@@ -45,9 +44,11 @@ export default function TodoList(props) {
           );
         })
       ) : (
-        <div className="no-tasks">No tasks</div>
+        <div className="no-tasks">
+          <p>No tasks available</p>
+        </div>
       )}
-    </>
+    </div>
   );
 }
 
