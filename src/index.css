@@ -635,3 +635,191 @@ html {
 }
 
 /*.......................................*/
+
+
+/* Global Responsive Base */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Responsive App Container */
+.app-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Responsive Input Container */
+.input-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.input-container input,
+.input-container select,
+.input-container button {
+  flex: 1;
+  min-width: 100px;
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Todo List */
+.todo-list-container {
+  flex: 1;
+  overflow-y: auto;
+  max-height: calc(100vh - 250px);
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Responsive Todo Card */
+.todo-item {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.todo-buttons button {
+  flex: 1;
+  min-width: 80px;
+  height: 40px;
+}
+
+/* Specific Device Adjustments */
+@media screen and (max-width: 360px) {
+  .input-container {
+    flex-direction: column;
+  }
+  
+  .input-container input,
+  .input-container select,
+  .input-container button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Responsive Tabs */
+.tab-container,
+.priority-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.tab-button,
+.priority-button {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+/* Scrollbar Improvements for Small Screens */
+@media screen and (max-width: 480px) {
+  .todo-list-container::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .todo-list-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .todo-list-container::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+  }
+}
+
+/* Location Navigation Responsiveness */
+.location-navigation-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.current-location {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.nav-button {
+  padding: 10px;
+  min-width: 100px;
+}
+
+/* Tribunal Selector Responsiveness */
+.tribunal-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.tribunal-button {
+  flex: 1;
+  min-width: 80px;
+  padding: 10px;
+}
+
+/* File Attachment Responsiveness */
+.file-preview {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Handling Very Small Screens */
+@media screen and (max-width: 320px) {
+  .todo-buttons {
+    flex-direction: column;
+  }
+  
+  .todo-buttons button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+/* Prevent Text Overflow */
+.todo-text, 
+.todo-item p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
