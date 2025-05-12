@@ -823,3 +823,72 @@ html, body {
   overflow-wrap: break-word;
   max-width: 100%;
 }
+
+
+
+
+
+
+/* Logout Button Responsive Styling */
+.logout-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: auto;
+  min-width: 100px;
+  padding: 10px 15px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.2);
+}
+
+.logout-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ensure visibility across different screen sizes */
+@media screen and (max-width: 768px) {
+  .logout-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    max-width: 300px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+}
+
+/* Add some additional responsive tweaks */
+@media screen and (max-width: 360px) {
+  .logout-button {
+    padding: 8px 12px;
+    font-size: 0.9em;
+    width: calc(100% - 30px);
+  }
+}
+
+/* Ensure app container has proper positioning */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 80px; /* Space for logout button */
+}
+
+/* Prevent logout button from overlapping with other elements */
+.todo-list-container {
+  margin-bottom: 80px;
+}
