@@ -70,7 +70,7 @@ Progress :
 9 --> Upvote-Downvote dynamic count feature added ,
 --> Mimicked Quora.com upvote styling (index.css).
 
-10)Remaining Requirements (Pending):
+10) Remaining Requirements (Pending):
 --> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
 --> Firebase-data-storage integration. (CRUD Operations provision)
 --> Responsive UI . 
@@ -86,7 +86,8 @@ Progress :
 Priority -> Select issues by date + UI-responsivenes.
 
 27 April --> Mobile-View-Fixed --> Stage-1 
-14 May --> Movbile-View-Fixed --> Stage-2
+14 May --> Movbile-View-Fixed --> Stage-2.
+
 
 
 
