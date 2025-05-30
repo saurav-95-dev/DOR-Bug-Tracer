@@ -86,9 +86,6 @@ Progress :
 
 Priority -> Select issues by date + UI-responsivenes.
 
-27 April --> Mobile-View-Fixed --> Stage-1 
-14 May --> Movbile-View-Fixed --> Stage-2.
-
 
 
 
