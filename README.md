@@ -72,7 +72,6 @@ Progress :
 --> Firebase-data-storage integration. (CRUD Operations provision)
 --> Responsive UI . 
 --> Applying search functionality via binary search / hashmap / Debounce on React  search input feature.
---> Video call functionality for different locations.
 --> Integrating Calender 
 
 
