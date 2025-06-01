@@ -22,10 +22,6 @@
 #### TECHNOLOGIES :
 HTML5 , CSS , Javascript , React , Firebase google Authentication , Firebase-Firestore , React Calender Library
 
-#### CONCEPTS AND TECHNIQUES:
-useState , useEffect , LocalStorage , Javascript Mapping concept , Saving data via LocalStorage on page reload (Specific to Web , not on mobile phones)
-Hooks used - 
-
 
 
 
