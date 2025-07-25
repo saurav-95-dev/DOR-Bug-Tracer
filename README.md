@@ -26,16 +26,6 @@ HTML5 , CSS , Javascript , React , Firebase google Authentication , Firebase-Fir
 
 
 
-
-
-
-
-
-
-
-Progress : 
---> Report NIC provision completed stage-1 . Issue --> Redundant data storage in Firestore . 
-
 Priority -> Select issues by date + UI-responsivenes.
 
 
