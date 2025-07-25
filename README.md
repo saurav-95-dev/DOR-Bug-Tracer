@@ -26,53 +26,8 @@ HTML5 , CSS , Javascript , React , Firebase google Authentication , Firebase-Fir
 
 
 
-#### Development changes -->
-1)Inside Todo-card contents are now one below the other.
-2)Spacing fixed between First todo-card and the priority tab .
-
-3)The docs files persist issue occurs because we are using URL.createObjectURL(file) which creates temporary URLs that don't persist across browser sessions [1]. When we restart your app, these blob URLs are no longer valid.
-
-4)Add detail functionality added.
-5)Extra details description does not persist in screen alongwith the docs uploaded 
-Reason : 
-While we're updating the task details in the TodoCard component, these updates aren't being saved to localStorage when the page refreshes. The handleUpdateDetails function in TodoCard calls handleUpdateDetails passed from App.jsx, but this function doesn't exist in App.jsx yet to persist the data .
-
-6) Tribunals section added .
-
---> Scrolling feature disrupted .
---> Persistence of task tribunal-wise is not made feassible yet . 
-
-Issue -->
-
-1)The issue persist in how the data is been stored in the local-storage 
-2)At handleSaveData() function, seems correctly storing the data in localStorage, but there's likely a timing issue .
-(Above issue has been resolved on April 7th , 2025).
 
 
-7)Requirement --> Swipe next-previous functionality to see the status of tribunal location-wise using linked-list datastructure.
-
-8)Requirement --> Add a search functionality to locate a bug or addtional requirement via implementing binary search . 
-
-Progress : 
-7--> Swipe next-previous feature added in CA Tribunal alongwith btn . 
-
-9) Last 4 feature requirement : 
---> Raise this issue at NIC Developers . 
---> No of upvotes count at each cards .
---> Firebase Integration for data storage .
---> Making UI responsive .
-
-   
-Progress : 
-9 --> Upvote-Downvote dynamic count feature added ,
---> Mimicked Quora.com upvote styling (index.css).
-
-10) Remaining Requirements (Pending):
---> Provision to raise the ticket directly to NIC management-unit . --> Done via adding Firestore (Google sheet is not included due to CORS issue)
---> Firebase-data-storage integration. (CRUD Operations provision)
---> Responsive UI . 
---> Applying search functionality via binary search / hashmap / Debounce on React  search input feature.
---> Integrating Calender 
 
 
 
