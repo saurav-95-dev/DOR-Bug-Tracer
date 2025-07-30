@@ -23,8 +23,6 @@ HTML5 , CSS , Javascript , React , Firebase google Authentication , Firebase-Fir
 
 
 
-Priority -> Select issues by date + UI-responsivenes.
-
 
 
 -> System Flow : 
