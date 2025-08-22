@@ -19,7 +19,7 @@ This Project is meant to handle and detect the tickets of the e-courts system(MV
    
 
 #### TECHNOLOGIES :
-HTML5 , CSS , React , Firebase google Authentication , Firebase-Firestore , React Calender Library
+HTML5 , React , Firebase google Authentication , Firebase-Firestore , React Calender Library
 
 
 
